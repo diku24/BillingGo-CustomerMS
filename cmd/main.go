@@ -13,4 +13,5 @@ func main() {
 	routers.RegisterUser(r)
 	http.Handle("/", r)
 	log.Fatal(http.ListenAndServe("localhost:8800", r))
+
 }

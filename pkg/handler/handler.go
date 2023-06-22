@@ -5,9 +5,7 @@ import (
 	"BillingGo/pkg/utils"
 
 	"encoding/json"
-	"fmt"
 	"net/http"
-	"strconv"
 
 	"github.com/gorilla/mux"
 )
@@ -19,28 +17,13 @@ const (
 	APPLICATIONJSON = "application/json"
 )
 
-func Getuser(w http.ResponseWriter, r *http.Request) {
-	NewUser := model.GetAllUsers()
-	res, _ := json.Marshal(NewUser)
-	w.Header().Set(CONTENTTYPE, APPLICATIONJSON)
-	w.WriteHeader(http.StatusOK)
-	w.Write(res)
-}
-func Getuserbyid(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	userId := vars["userId"]
-	ID, err := strconv.ParseInt(userId, 0, 0)
-	if err != nil {
-		fmt.Print("ERROR WHILE PARSING ")
-	}
-	UserDetails, _ := model.Getuserbyid(ID)
-	res, _ := json.Marshal(UserDetails)
-	w.Header().Set(CONTENTTYPE, APPLICATIONJSON)
-	w.WriteHeader(http.StatusOK)
-	w.Write(res)
+type UserHandler struct{}
+
+func NewUserHandler() Handler {
+	return &UserHandler{}
 }
 
-func Createuser(w http.ResponseWriter, r *http.Request) {
+func (*UserHandler) Create(w http.ResponseWriter, r *http.Request) {
 	Createuser := &model.User{}
 	utils.ParseBody(r, Createuser)
 	b := Createuser.Createuser()
@@ -49,30 +32,39 @@ func Createuser(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
-func Deleteuser(w http.ResponseWriter, r *http.Request) {
+func (*UserHandler) Get(w http.ResponseWriter, r *http.Request) {
+	NewUser := model.GetAllUsers()
+	res, _ := json.Marshal(NewUser)
+	w.Header().Set(CONTENTTYPE, APPLICATIONJSON)
+	w.WriteHeader(http.StatusOK)
+	w.Write(res)
+}
+
+func (*UserHandler) Getbyid(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	userId := vars["userId"]
-	ID, err := strconv.ParseInt(userId, 0, 0)
-	if err != nil {
-		fmt.Print("ERROR WHILE PARSING ")
-	}
-	user := model.Deleteuser(ID)
+	userId := vars["UserId"]
+	UserDetails, _, _ := model.Getbyid(userId)
+	res, _ := json.Marshal(UserDetails)
+	w.Header().Set(CONTENTTYPE, APPLICATIONJSON)
+	w.WriteHeader(http.StatusOK)
+	w.Write(res)
+}
+
+func (*UserHandler) Delete(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	userId := vars["UserId"]
+	user := model.Deleteuser(userId)
 	res, _ := json.Marshal(user)
 	w.Header().Set(CONTENTTYPE, APPLICATIONJSON)
 	w.WriteHeader(http.StatusOK)
 	w.Write(res)
 }
-func Updateuser(w http.ResponseWriter, r *http.Request) {
+func (*UserHandler) Update(w http.ResponseWriter, r *http.Request) {
 	var updateuser = &model.User{}
-	//utils.parseBody(r, updateuser)
 	utils.ParseBody(r, updateuser)
 	vars := mux.Vars(r)
-	userId := vars["userId"]
-	ID, err := strconv.ParseInt(userId, 0, 0)
-	if err != nil {
-		fmt.Print("ERROR WHILR PARSING ")
-	}
-	userDetails, db := model.Getuserbyid(ID)
+	userId := vars["UserId"]
+	userDetails, db, _ := model.Getbyid(userId)
 	if updateuser.Username != "" {
 		userDetails.Username = updateuser.Username
 	}

@@ -16,16 +16,16 @@ const (
 )
 
 var RegisterUser = func(router *mux.Router) {
-	router.HandleFunc(users, handler.Createuser).Methods("POST")
-	router.HandleFunc(users, handler.Getuser).Methods("GET")
-	router.HandleFunc(usersWithId, handler.Getuserbyid).Methods("GET")
-	router.HandleFunc(userWithName, handler.Getuser).Methods("GET")
+	router.HandleFunc(users, handler.NewUserHandler().Create).Methods("POST")
+	router.HandleFunc(users, handler.NewUserHandler().Get).Methods("GET")
+	router.HandleFunc(usersWithId, handler.NewUserHandler().Getbyid).Methods("GET")
+	//router.HandleFunc(userWithName, handler.Getuser).Methods("GET")
 
-	router.HandleFunc(usersWithId, handler.Updateuser).Methods("PUT")
-	router.HandleFunc(userWithName, handler.Updateuser).Methods("PUT")
+	router.HandleFunc(usersWithId, handler.NewUserHandler().Update).Methods("PUT")
+	//router.HandleFunc(userWithName, handler.Updateuser).Methods("PUT")
 
-	router.HandleFunc(usersWithId, handler.Deleteuser).Methods("DELETE")
-	router.HandleFunc(userWithName, handler.Deleteuser).Methods("DELETE")
+	router.HandleFunc(usersWithId, handler.NewUserHandler().Delete).Methods("DELETE")
+	//router.HandleFunc(userWithName, handler.Deleteuser).Methods("DELETE")
 }
 
 // var RegisterCoustomer = func(router *mux.router) {

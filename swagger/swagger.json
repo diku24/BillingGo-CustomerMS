@@ -1,0 +1,17 @@
+{
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "http"
+  ],
+  "swagger": "2.0",
+  "info": {
+    "title": "Swagger",
+    "version": "0.1.0"
+  },
+  "paths": {}
+}

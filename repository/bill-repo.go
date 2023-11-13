@@ -8,5 +8,4 @@ type BillRespository interface {
 	GetCutomerById(id string) (models.Customer, error)
 	UpdateCutomer(id string) error
 	DeleteCutomer(id string) error
-	PingServer()
 }

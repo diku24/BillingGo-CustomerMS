@@ -7,6 +7,7 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 )
 
@@ -14,73 +15,74 @@ type CustomerController struct{}
 
 var customerService services.BillService
 
+const (
+	contentType     = "content-type"
+	applicationJson = "application/json"
+)
+
 func NewCustomerController(service services.BillService) BillHandler {
 	customerService = service
 	return &CustomerController{}
 }
 
 // DELETE implements BillHandler.
-func (*CustomerController) DELETE(response http.ResponseWriter, req *http.Request) {
-	panic("unimplemented")
+func (*CustomerController) DELETE(response http.ResponseWriter, req *http.Request) error {
+
+	customerId := mux.Vars(req)["id"]
+	logrus.Infoln("Id to be deleted - Handler :", customerId)
+	err := customerService.Delete(customerId)
+	if err != nil {
+		return err
+	}
+	return WriteJSON(response, http.StatusOK, map[string]string{"deleted customer with Id : ": customerId})
+
 }
 
 // GET implements BillHandler.
-func (*CustomerController) GET(response http.ResponseWriter, req *http.Request) {
-	//panic("unimplemented")
-	response.Header().Set("content-type", "application/json")
-	//var customeri models.Customer
+func (*CustomerController) GET(response http.ResponseWriter, req *http.Request) error {
 
 	customerIdParam := req.URL.Query().Get("customer_id")
 	logrus.Infoln(customerIdParam)
 	if customerIdParam != "" {
 		customer, err := customerService.GetById(customerIdParam)
 		if err != nil {
-			response.WriteHeader(http.StatusInternalServerError)
-			logrus.Errorln(err.Error())
-			json.NewEncoder(response).Encode(errors.ServiceError{Message: "Error Getting the Record From Database"})
-			return
+			return WriteJSON(response, http.StatusInternalServerError, errors.ServiceError{Message: "Error Getting the Record From Database"})
 		}
-		response.WriteHeader(http.StatusOK)
-		json.NewEncoder(response).Encode(customer)
+		return WriteJSON(response, http.StatusOK, customer)
 	} else {
 		customer, err := customerService.GetAll()
 		if err != nil {
-			response.WriteHeader(http.StatusInternalServerError)
-			logrus.Errorln(err.Error())
-			json.NewEncoder(response).Encode(errors.ServiceError{Message: "Error Getting the ALL Record From Database"})
-			return
+			return WriteJSON(response, http.StatusInternalServerError, errors.ServiceError{Message: "Error Getting the Record From Database"})
 		}
-		response.WriteHeader(http.StatusOK)
-		json.NewEncoder(response).Encode(customer)
+		return WriteJSON(response, http.StatusOK, customer)
 	}
 
 }
 
 // POST implements BillHandler.
-func (*CustomerController) POST(response http.ResponseWriter, req *http.Request) {
+func (*CustomerController) POST(response http.ResponseWriter, req *http.Request) error {
 
-	response.Header().Set("content-type", "application/json")
 	var customer models.Customer
 
 	err := json.NewDecoder(req.Body).Decode(&customer)
 	if err != nil {
-		response.WriteHeader(http.StatusInternalServerError)
-		logrus.Errorln(err.Error())
-		json.NewEncoder(response).Encode(errors.ServiceError{Message: "Error UnMarshiling the Request"})
-		return
+		return WriteJSON(response, http.StatusInternalServerError, errors.ServiceError{Message: "Error UnMarshiling the Request"})
 	}
 
 	result, err := customerService.Create(&customer)
 	if err != nil {
-		response.WriteHeader(http.StatusInternalServerError)
-		json.NewEncoder(response).Encode(errors.ServiceError{Message: "Error Saving the Post Data - customer Data"})
-		return
+		return WriteJSON(response, http.StatusInternalServerError, errors.ServiceError{Message: "Error Saving the Post Data - customer Data"})
 	}
-	response.WriteHeader(http.StatusOK)
-	json.NewEncoder(response).Encode(result)
+	return WriteJSON(response, http.StatusOK, result)
 }
 
 // PUT implements BillHandler.
-func (*CustomerController) PUT(response http.ResponseWriter, req *http.Request) {
-	panic("unimplemented")
+func (*CustomerController) PUT(response http.ResponseWriter, req *http.Request) error {
+	panic("")
+}
+
+func WriteJSON(resp http.ResponseWriter, status int, v any) error {
+	resp.Header().Set(contentType, applicationJson)
+	resp.WriteHeader(status)
+	return json.NewEncoder(resp).Encode(v)
 }

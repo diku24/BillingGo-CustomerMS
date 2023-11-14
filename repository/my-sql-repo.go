@@ -66,24 +66,26 @@ func (*MySQLRepository) GetCutomerById(id string) (models.Customer, error) {
 
 // DeleteCutomer implements BillRespository.
 func (*MySQLRepository) DeleteCutomer(id string) error {
-	panic("unimplemented")
-	// db, err := repository.OpenMysqlConnection()
-	// if err != nil {
-	// 	logrus.Errorln(err.Error())
-	// 	logrus.Errorln("Failed to Connect to the Database !!")
-	// }
 
-	// logrus.Println("You have entered Id: " + id)
-	// result := db.Delete(&customer, "customer_id= ?", id)
-	// logrus.Println(result.RowsAffected)
-	// logrus.Errorln(result.Error)
+	db, err := repository.OpenMysqlConnection()
+	if err != nil {
+		logrus.Errorln(err.Error())
+		logrus.Errorln("Failed to Connect to the Database !!")
+		return err
+	}
 
-	// if errors.Is(result.Error, gorm.ErrRecordNotFound) {
-	// 	logrus.Errorf("No Records Found for Entered Id: %v", id)
-	// }
+	logrus.Println("You have entered Id: " + id)
+	result := db.Delete(&customer, "customer_id= ?", id)
+	logrus.Println(result.RowsAffected)
+	logrus.Errorln(result.Error)
 
-	// logrus.Println("Values "+customer.CustomerId, customer.CustomerName, customer.CreatedAt, customer.DeletedAt)
-	// return nil
+	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
+		logrus.Errorf("No Records Found for Entered Id: %v", id)
+	}
+
+	logrus.Println("Deleted Values "+customer.CustomerId, customer.CustomerName, customer.CreatedAt, customer.DeletedAt)
+
+	return nil
 
 }
 

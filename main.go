@@ -91,11 +91,12 @@ func main() {
 		dbInit.PingServer()
 	})
 
-	httpRouter.GET("/customer", billHandler.GET)
+	httpRouter.GET("/customer", api.MakeHTTPHandlerFunction(billHandler.GET))
 
-	httpRouter.GET("/customer/{id}", billHandler.GET)
+	httpRouter.GET("/customer/{id}", api.MakeHTTPHandlerFunction(billHandler.GET))
+	httpRouter.DELETE("/customer/{id}", api.MakeHTTPHandlerFunction(billHandler.DELETE))
 
-	httpRouter.POST("/customer", billHandler.POST)
+	httpRouter.POST("/customer", api.MakeHTTPHandlerFunction(billHandler.POST))
 
 	httpRouter.SERVE(port)
 

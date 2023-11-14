@@ -1,6 +1,7 @@
 package api
 
 import (
+	localError "BillingGo/errors"
 	"BillingGo/handler"
 	"context"
 	"errors"
@@ -23,10 +24,6 @@ var (
 type muxRouter struct {
 }
 
-type ApiError struct {
-	Error string `json:"error"`
-}
-
 type apiFunction func(http.ResponseWriter, *http.Request) error
 
 func NewMuxRouter() Router {
@@ -41,7 +38,7 @@ func (*muxRouter) DELETE(uri string, funcojb func(respoce http.ResponseWriter, r
 
 // UPDATE implements Router.
 func (*muxRouter) UPDATE(uri string, funcojb func(respoce http.ResponseWriter, request *http.Request)) {
-	muxDispatcher.HandleFunc(uri, funcojb).Methods("UPDATE")
+	muxDispatcher.HandleFunc(uri, funcojb).Methods("PUT")
 	//panic("unimplemented")
 }
 
@@ -79,7 +76,7 @@ func MakeHTTPHandlerFunction(funcy apiFunction) http.HandlerFunc {
 	return func(response http.ResponseWriter, req *http.Request) {
 		if err := funcy(response, req); err != nil {
 			//Handle The Function Errors
-			handler.WriteJSON(response, http.StatusBadRequest, ApiError{Error: err.Error()})
+			handler.WriteJSON(response, http.StatusBadRequest, localError.ApiError{Error: err.Error()})
 		}
 	}
 }

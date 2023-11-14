@@ -92,11 +92,11 @@ func main() {
 	})
 
 	httpRouter.GET("/customer", api.MakeHTTPHandlerFunction(billHandler.GET))
-
-	httpRouter.GET("/customer/{id}", api.MakeHTTPHandlerFunction(billHandler.GET))
-	httpRouter.DELETE("/customer/{id}", api.MakeHTTPHandlerFunction(billHandler.DELETE))
-
+	httpRouter.GET("/customer/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.GET))
+	httpRouter.DELETE("/customer/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.DELETE))
 	httpRouter.POST("/customer", api.MakeHTTPHandlerFunction(billHandler.POST))
+
+	httpRouter.UPDATE("/customer", api.MakeHTTPHandlerFunction(billHandler.PUT))
 
 	httpRouter.SERVE(port)
 

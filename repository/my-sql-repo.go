@@ -110,6 +110,37 @@ func (*MySQLRepository) GetAllCutomer() ([]*models.Customer, error) {
 }
 
 // UpdateCutomer implements BillRespository.
-func (*MySQLRepository) UpdateCutomer(id string) error {
-	panic("unimplemented")
+func (*MySQLRepository) UpdateCutomer(model *models.Customer) (*models.Customer, error) {
+	db, err := repository.OpenMysqlConnection()
+	if err != nil {
+		return nil, err
+	}
+
+	customerDataHolder := models.Customer{
+		CustomerName:  model.CustomerName,
+		ContactNumber: model.ContactNumber,
+		Address:       model.Address,
+		Priority:      model.Priority,
+		CreatedAt:     model.CreatedAt,
+		UpdatedAt:     model.UpdatedAt,
+		DeletedAt:     model.DeletedAt,
+	}
+
+	logrus.Print("1")
+
+	checkRecord, err := NewMySQLReopsitory().GetCutomerById(model.CustomerId)
+	if err != nil {
+		return nil, err
+	}
+	logrus.Println("Record Before changes: ", checkRecord)
+	// check error ErrRecordNotFound
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil, gorm.ErrRecordNotFound
+	}
+
+	db.Model(&customer).Where("customer_id= ?", model.CustomerId).Updates(customerDataHolder)
+
+	logrus.Println("Record after changes", checkRecord)
+
+	return &customerDataHolder, err
 }

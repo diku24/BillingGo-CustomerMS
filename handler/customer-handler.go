@@ -32,16 +32,27 @@ func (*CustomerController) GET(response http.ResponseWriter, req *http.Request) 
 
 	customerIdParam := req.URL.Query().Get("customer_id")
 	logrus.Infoln(customerIdParam)
-
-	customer, err := customerService.GetById(customerIdParam)
-	if err != nil {
-		response.WriteHeader(http.StatusInternalServerError)
-		logrus.Errorln(err.Error())
-		json.NewEncoder(response).Encode(errors.ServiceError{Message: "Error Getting the Record From Database"})
-		return
+	if customerIdParam != "" {
+		customer, err := customerService.GetById(customerIdParam)
+		if err != nil {
+			response.WriteHeader(http.StatusInternalServerError)
+			logrus.Errorln(err.Error())
+			json.NewEncoder(response).Encode(errors.ServiceError{Message: "Error Getting the Record From Database"})
+			return
+		}
+		response.WriteHeader(http.StatusOK)
+		json.NewEncoder(response).Encode(customer)
+	} else {
+		customer, err := customerService.GetAll()
+		if err != nil {
+			response.WriteHeader(http.StatusInternalServerError)
+			logrus.Errorln(err.Error())
+			json.NewEncoder(response).Encode(errors.ServiceError{Message: "Error Getting the ALL Record From Database"})
+			return
+		}
+		response.WriteHeader(http.StatusOK)
+		json.NewEncoder(response).Encode(customer)
 	}
-	response.WriteHeader(http.StatusOK)
-	json.NewEncoder(response).Encode(customer)
 
 }
 

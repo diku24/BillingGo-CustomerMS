@@ -22,7 +22,7 @@ type Customer struct {
 	//min: 1
 	//unique: true
 
-	CustomerId string `json:"customer_id" gorm:"primaryKey";"autoIncrement"`
+	CustomerId string `json:"customer_id" gorm:"primaryKey"`
 
 	//the  customerName is Name of the Customer.
 	//required: true

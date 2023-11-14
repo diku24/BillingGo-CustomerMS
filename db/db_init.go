@@ -22,11 +22,12 @@ var (
 	customer          models.Customer
 	datetimePrecision = 30
 	sqlConfig         = sqlmy.Config{
-		User:   dbUser,
-		Passwd: dbPass,
-		Net:    networkProtcol,
-		Addr:   connectionString,
-		DBName: databaseName,
+		User:      dbUser,
+		Passwd:    dbPass,
+		Net:       networkProtcol,
+		Addr:      connectionString,
+		DBName:    databaseName,
+		ParseTime: true,
 	}
 
 	gormConfig = mysql.Config{
@@ -78,19 +79,23 @@ func TableCreation() error {
 	if err != nil {
 		return err
 	}
-	//Drop Customer Table if it is present alredy
-	droptablerr := db.Migrator().DropTable(&customer)
-	if droptablerr != nil {
-		return droptablerr
-	}
-	logrus.Println("Table Dropped Successfully")
 
-	//create customer Table
-	createtablerr := db.Migrator().CreateTable(&customer)
-	if createtablerr != nil {
-		return createtablerr
+	if !db.Migrator().HasTable(&customer) {
+		//Drop Customer Table if it is present alredy
+		droptablerr := db.Migrator().DropTable(&customer)
+		if droptablerr != nil {
+			return droptablerr
+		}
+		logrus.Println("Table Dropped Successfully")
+
+		//create customer Table
+		createtablerr := db.Migrator().CreateTable(&customer)
+		if createtablerr != nil {
+			return createtablerr
+		}
+		logrus.Println("Table Creates Successfully")
 	}
-	logrus.Println("Table Creates Successfully")
+
 	return nil
 
 }

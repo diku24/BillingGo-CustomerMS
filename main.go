@@ -3,9 +3,11 @@ package main
 
 import (
 	"BillingGo/api"
+	dbInit "BillingGo/db"
 	_ "BillingGo/docs"
 	"BillingGo/handler"
 	"BillingGo/repository"
+
 	"BillingGo/services"
 	"BillingGo/utils"
 	"context"
@@ -51,6 +53,9 @@ func init() {
 //go:generate swagger generate spec
 func main() {
 
+	//Create Table in DB Database Setup
+	dbInit.TableCreation()
+
 	//Handle the Graceful Shutdown if service is interrupted
 	idelConnectionClosed := make(chan struct{})
 	go func() {
@@ -83,7 +88,7 @@ func main() {
 	})
 
 	httpRouter.GET("/dbtest", func(responce http.ResponseWriter, request *http.Request) {
-		billRepo.PingServer()
+		dbInit.PingServer()
 	})
 
 	httpRouter.GET("/customer", billHandler.GET)

@@ -27,7 +27,7 @@ func (*CustomerService) Delete(id string) error {
 }
 
 // GetAll implements BillService.
-func (*CustomerService) GetAll() ([]models.Customer, error) {
+func (*CustomerService) GetAll() ([]*models.Customer, error) {
 	//panic("unimplemented")
 	return repo.GetAllCutomer()
 }

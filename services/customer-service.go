@@ -39,7 +39,8 @@ func (*CustomerService) GetById(id string) (models.Customer, error) {
 }
 
 // Update implements BillService.
-func (*CustomerService) Update(id string) error {
+func (*CustomerService) Update(model *models.Customer) (*models.Customer, error) {
 	//panic("unimplemented")
-	return repo.UpdateCutomer(id)
+
+	return repo.UpdateCutomer(model)
 }

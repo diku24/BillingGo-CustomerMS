@@ -1,6 +1,8 @@
 package api
 
 import (
+	localError "BillingGo/errors"
+	"BillingGo/handler"
 	"context"
 	"errors"
 	"net/http"
@@ -10,8 +12,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type muxRouter struct{}
-
 var (
 	muxDispatcher = mux.NewRouter()
 	port          = os.Getenv("SERVERPORT")
@@ -20,6 +20,11 @@ var (
 		Handler: muxDispatcher,
 	}
 )
+
+type muxRouter struct {
+}
+
+type apiFunction func(http.ResponseWriter, *http.Request) error
 
 func NewMuxRouter() Router {
 	return &muxRouter{}
@@ -33,7 +38,7 @@ func (*muxRouter) DELETE(uri string, funcojb func(respoce http.ResponseWriter, r
 
 // UPDATE implements Router.
 func (*muxRouter) UPDATE(uri string, funcojb func(respoce http.ResponseWriter, request *http.Request)) {
-	muxDispatcher.HandleFunc(uri, funcojb).Methods("UPDATE")
+	muxDispatcher.HandleFunc(uri, funcojb).Methods("PUT")
 	//panic("unimplemented")
 }
 
@@ -65,4 +70,13 @@ func (*muxRouter) GraceFulShutDown(ctx context.Context) error {
 		logrus.Printf("http Server shutdown error : %v", err)
 	}
 	return nil
+}
+
+func MakeHTTPHandlerFunction(funcy apiFunction) http.HandlerFunc {
+	return func(response http.ResponseWriter, req *http.Request) {
+		if err := funcy(response, req); err != nil {
+			//Handle The Function Errors
+			handler.WriteJSON(response, http.StatusBadRequest, localError.ApiError{Error: err.Error()})
+		}
+	}
 }

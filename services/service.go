@@ -5,7 +5,7 @@ import (
 )
 
 type BillService interface {
-	Create(models *models.Customer) (*models.Customer, error)
+	Create(model *models.Customer) (*models.Customer, error)
 	GetAll() ([]*models.Customer, error)
 	GetById(id string) (models.Customer, error)
 	Update(model *models.Customer) (*models.Customer, error)

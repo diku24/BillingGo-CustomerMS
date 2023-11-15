@@ -5,4 +5,4 @@ run: build
 	@./bin/billingGo
 
 test:
-	@go test ./..
+	@go test ./... -coverprofile=coverage

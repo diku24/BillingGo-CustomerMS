@@ -7,5 +7,6 @@ type BillRespository interface {
 	GetAllCutomer() ([]*models.Customer, error)
 	GetCutomerById(id string) (models.Customer, error)
 	UpdateCutomer(model *models.Customer) (*models.Customer, error)
-	DeleteCutomer(id string) error
+	//UpdateCutomer(id string) (*models.Customer, error)
+	DeleteCutomer(id string) (*models.Customer, error)
 }

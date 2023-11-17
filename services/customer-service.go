@@ -20,12 +20,6 @@ func (*CustomerService) Create(model *models.Customer) (*models.Customer, error)
 	return repo.CreateCutomer(model)
 }
 
-// Delete implements BillService.
-func (*CustomerService) Delete(id string) error {
-	//panic("unimplemented")
-	return repo.DeleteCutomer(id)
-}
-
 // GetAll implements BillService.
 func (*CustomerService) GetAll() ([]*models.Customer, error) {
 	//panic("unimplemented")
@@ -43,4 +37,10 @@ func (*CustomerService) Update(model *models.Customer) (*models.Customer, error)
 	//panic("unimplemented")
 
 	return repo.UpdateCutomer(model)
+}
+
+// Delete implements BillService.
+func (*CustomerService) Delete(id string) (*models.Customer, error) {
+	//panic("unimplemented")
+	return repo.DeleteCutomer(id)
 }

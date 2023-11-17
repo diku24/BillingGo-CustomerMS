@@ -64,31 +64,6 @@ func (*MySQLRepository) GetCutomerById(id string) (models.Customer, error) {
 
 }
 
-// DeleteCutomer implements BillRespository.
-func (*MySQLRepository) DeleteCutomer(id string) error {
-
-	db, err := repository.OpenMysqlConnection()
-	if err != nil {
-		logrus.Errorln(err.Error())
-		logrus.Errorln("Failed to Connect to the Database !!")
-		return err
-	}
-
-	logrus.Println("You have entered Id: " + id)
-	result := db.Delete(&customer, "customer_id= ?", id)
-	logrus.Println(result.RowsAffected)
-	logrus.Errorln(result.Error)
-
-	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
-		logrus.Errorf("No Records Found for Entered Id: %v", id)
-	}
-
-	logrus.Println("Deleted Values "+customer.CustomerId, customer.CustomerName, customer.CreatedAt, customer.DeletedAt)
-
-	return nil
-
-}
-
 // GetAllCutomer implements BillRespository.
 func (*MySQLRepository) GetAllCutomer() ([]*models.Customer, error) {
 	var customers []*models.Customer
@@ -109,6 +84,7 @@ func (*MySQLRepository) GetAllCutomer() ([]*models.Customer, error) {
 	return customers, nil
 }
 
+// This is for updateing record with Model as input params
 // UpdateCutomer implements BillRespository.
 func (*MySQLRepository) UpdateCutomer(model *models.Customer) (*models.Customer, error) {
 	db, err := repository.OpenMysqlConnection()
@@ -117,6 +93,7 @@ func (*MySQLRepository) UpdateCutomer(model *models.Customer) (*models.Customer,
 	}
 
 	customerDataHolder := models.Customer{
+		CustomerId:    model.CustomerId,
 		CustomerName:  model.CustomerName,
 		ContactNumber: model.ContactNumber,
 		Address:       model.Address,
@@ -125,8 +102,6 @@ func (*MySQLRepository) UpdateCutomer(model *models.Customer) (*models.Customer,
 		UpdatedAt:     model.UpdatedAt,
 		DeletedAt:     model.DeletedAt,
 	}
-
-	logrus.Print("1")
 
 	checkRecord, err := NewMySQLReopsitory().GetCutomerById(model.CustomerId)
 	if err != nil {
@@ -138,9 +113,37 @@ func (*MySQLRepository) UpdateCutomer(model *models.Customer) (*models.Customer,
 		return nil, gorm.ErrRecordNotFound
 	}
 
-	db.Model(&customer).Where("customer_id= ?", model.CustomerId).Updates(customerDataHolder)
+	db.Model(&customer).Where("customer_id = ?", model.CustomerId).Updates(customerDataHolder)
 
 	logrus.Println("Record after changes", checkRecord)
 
 	return &customerDataHolder, err
+}
+
+// DeleteCutomer implements BillRespository.
+func (*MySQLRepository) DeleteCutomer(id string) (*models.Customer, error) {
+
+	db, err := repository.OpenMysqlConnection()
+	if err != nil {
+		logrus.Errorln(err.Error())
+		logrus.Errorln("Failed to Connect to the Database !!")
+		return nil, err
+	}
+
+	logrus.Println("You have entered Id: " + id)
+	cust, err := NewMySQLReopsitory().GetCutomerById(id)
+	if err != nil {
+		logrus.Errorf("No Records Found for Entered Id: %v", id)
+	}
+
+	result := db.Delete(&customer, "customer_id = ?", id)
+	logrus.Println(result.RowsAffected)
+	logrus.Errorln(result.Error)
+
+	if errors.Is(result.Error, gorm.ErrRecordNotFound) {
+		logrus.Errorf("No Records Found for Entered Id: %v", id)
+	}
+
+	return &cust, nil
+
 }

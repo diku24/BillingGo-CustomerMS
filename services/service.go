@@ -9,5 +9,6 @@ type BillService interface {
 	GetAll() ([]*models.Customer, error)
 	GetById(id string) (models.Customer, error)
 	Update(model *models.Customer) (*models.Customer, error)
-	Delete(id string) error
+	//Update(id string) (*models.Customer, error)
+	Delete(id string) (*models.Customer, error)
 }

@@ -1,7 +1,0 @@
-mockgen -source=C:/Users/Dinesh/go/src/BillingGo/services/service.go -destination=C:/Users/Dinesh/go/src/BillingGo/mocks/serviceMocks.go -package=mocks
-
-mockgen -source=C:/Users/Dinesh/go/src/BillingGo/repository/bil-repo.go -destination=C:/Users/Dinesh/go/src/BillingGo/mocks/repositoryMocks.go -package=mocks
-
-mockgen -source=C:/Users/Dinesh/go/src/BillingGo/services/handler.go -destination=C:/Users/Dinesh/go/src/BillingGo/mocks/handlerMocks.go -package=mocks
-
-mockgen -source=C:/Users/Dinesh/go/src/BillingGo/api/router.go -destination=C:/Users/Dinesh/go/src/BillingGo/mocks/apiMocks.go -package=mocks

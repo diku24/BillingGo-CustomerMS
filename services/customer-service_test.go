@@ -21,11 +21,8 @@ var (
 )
 
 func TestCreateService(t *testing.T) {
-	control := gomock.NewController(t)
 
-	defer control.Finish()
-
-	mockRepo := mocks.NewMockBillRespository(control)
+	mockRepo := genrateMockRepo(t)
 
 	mockRepo.EXPECT().CreateCutomer(gomock.Any()).Return(&mockCustomer, nil)
 
@@ -33,23 +30,19 @@ func TestCreateService(t *testing.T) {
 
 	result, err := testService.Create(&mockCustomer)
 
-	assert.Equal(t, "1", result.CustomerId)
-	assert.Equal(t, "Diku", result.CustomerName)
-	assert.Equal(t, "345-345-345", result.ContactNumber)
-	assert.Equal(t, "Ahmednagar", result.Address)
-	assert.Equal(t, "High", result.Priority)
-
+	//assertions for failing
+	assert.Equal(t, mockCustomer.CustomerId, result.CustomerId)
+	assert.Equal(t, mockCustomer.CustomerName, result.CustomerName)
+	assert.Equal(t, mockCustomer.ContactNumber, result.ContactNumber)
+	assert.Equal(t, mockCustomer.Address, result.Address)
+	assert.Equal(t, mockCustomer.Priority, result.Priority)
 	assert.Nil(t, err)
 
 }
 
 func TestGetService(t *testing.T) {
 
-	control := gomock.NewController(t)
-
-	defer control.Finish()
-
-	mockRepo := mocks.NewMockBillRespository(control)
+	mockRepo := genrateMockRepo(t)
 
 	mockRepo.EXPECT().GetAllCutomer().Return([]*models.Customer{&mockCustomer}, nil)
 
@@ -57,21 +50,18 @@ func TestGetService(t *testing.T) {
 
 	result, err := testService.GetAll()
 
-	assert.Equal(t, "1", result[0].CustomerId)
-	assert.Equal(t, "Diku", result[0].CustomerName)
-	assert.Equal(t, "345-345-345", result[0].ContactNumber)
-	assert.Equal(t, "Ahmednagar", result[0].Address)
-	assert.Equal(t, "High", result[0].Priority)
+	assert.Equal(t, mockCustomer.CustomerId, result[0].CustomerId)
+	assert.Equal(t, mockCustomer.CustomerName, result[0].CustomerName)
+	assert.Equal(t, mockCustomer.ContactNumber, result[0].ContactNumber)
+	assert.Equal(t, mockCustomer.Address, result[0].Address)
+	assert.Equal(t, mockCustomer.Priority, result[0].Priority)
 
 	assert.Nil(t, err)
 }
 
 func TestGetByIdService(t *testing.T) {
-	control := gomock.NewController(t)
 
-	defer control.Finish()
-
-	mockRepo := mocks.NewMockBillRespository(control)
+	mockRepo := genrateMockRepo(t)
 
 	mockRepo.EXPECT().GetCutomerById(mockCustomer.CustomerId).Return(mockCustomer, nil)
 
@@ -79,34 +69,27 @@ func TestGetByIdService(t *testing.T) {
 
 	result, err := testService.GetById(mockCustomer.CustomerId)
 
-	assert.Equal(t, "1", result.CustomerId)
-	assert.Equal(t, "Diku", result.CustomerName)
-	assert.Equal(t, "345-345-345", result.ContactNumber)
-	assert.Equal(t, "Ahmednagar", result.Address)
-	assert.Equal(t, "High", result.Priority)
-
+	//assertions for failing
+	assert.Equal(t, mockCustomer.CustomerId, result.CustomerId)
+	assert.Equal(t, mockCustomer.CustomerName, result.CustomerName)
+	assert.Equal(t, mockCustomer.ContactNumber, result.ContactNumber)
+	assert.Equal(t, mockCustomer.Address, result.Address)
+	assert.Equal(t, mockCustomer.Priority, result.Priority)
 	assert.Nil(t, err)
 }
 
 func TestDeleteService(t *testing.T) {
-	control := gomock.NewController(t)
 
-	defer control.Finish()
-
-	mockRepo := mocks.NewMockBillRespository(control)
-
-	mockRepo.EXPECT().DeleteCutomer(mockCustomer.CustomerId).Return(nil)
+	mockRepo := genrateMockRepo(t)
+	mockRepo.EXPECT().DeleteCutomer(mockCustomer.CustomerId).Return(&mockCustomer, nil)
 	testService := services.NewCustomerService(mockRepo)
-	err := testService.Delete(mockCustomer.CustomerId)
+	_, err := testService.Delete(mockCustomer.CustomerId)
+
 	assert.Nil(t, err)
 }
 
 func TestUpdateService(t *testing.T) {
-	control := gomock.NewController(t)
-
-	defer control.Finish()
-
-	mockRepo := mocks.NewMockBillRespository(control)
+	mockRepo := genrateMockRepo(t)
 
 	mockRepo.EXPECT().UpdateCutomer(&mockCustomer).Return(&mockCustomer, nil)
 
@@ -114,11 +97,18 @@ func TestUpdateService(t *testing.T) {
 
 	result, err := testService.Update(&mockCustomer)
 
-	assert.Equal(t, "1", result.CustomerId)
-	assert.Equal(t, "Diku", result.CustomerName)
-	assert.Equal(t, "345-345-345", result.ContactNumber)
-	assert.Equal(t, "Ahmednagar", result.Address)
-	assert.Equal(t, "High", result.Priority)
-
+	//assertions for failing
+	assert.Equal(t, mockCustomer.CustomerId, result.CustomerId)
+	assert.Equal(t, mockCustomer.CustomerName, result.CustomerName)
+	assert.Equal(t, mockCustomer.ContactNumber, result.ContactNumber)
+	assert.Equal(t, mockCustomer.Address, result.Address)
+	assert.Equal(t, mockCustomer.Priority, result.Priority)
 	assert.Nil(t, err)
+}
+
+func genrateMockRepo(t *testing.T) *mocks.MockBillRespository {
+	control := gomock.NewController(t)
+	defer control.Finish()
+	mockRepo := mocks.NewMockBillRespository(control)
+	return mockRepo
 }

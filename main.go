@@ -6,10 +6,16 @@ import (
 	dbInit "BillingGo/db"
 	_ "BillingGo/docs"
 	"BillingGo/handler"
+	logger "BillingGo/logger"
 	"BillingGo/repository"
+	"fmt"
+	"io"
+	"runtime"
+	"strings"
 
 	"BillingGo/services"
 	"BillingGo/utils"
+
 	"context"
 	"net/http"
 	"os"
@@ -31,16 +37,62 @@ const (
 	uriCustomer = "/customer"
 )
 
+func formatFilePath(path string) string {
+	arr := strings.Split(path, "/")
+	return arr[len(arr)-1]
+}
+
 func init() {
+
+	// Open a file for appending logs
+	file, err := os.OpenFile("logs/error.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	if err != nil {
+		logrus.Fatalf("Failed to open log file: %v", err)
+	}
+	//defer file.Close()
+
+	hook := &logger.FileHook{File: file}
+	logrus.AddHook(hook)
+
 	//Log as JSON Instead of default ASCII formatter
-	//logrus.SetFormatter(&logrus.JSONFormatter{})
+	//logrus.SetFormatter(&logrus.TextFormatter{})
+	logrus.SetFormatter(&logrus.TextFormatter{
+		DisableTimestamp: false,
+		TimestampFormat:  "2006-01-02 15:04:05",
+		DisableColors:    false,
+		//ForceColors:            true,
+		QuoteEmptyFields:       true,
+		DisableLevelTruncation: true,
+		CallerPrettyfier: func(f *runtime.Frame) (string, string) {
+			// this function is required when you want to introduce your custom format.
+			// In my case I wanted file and line to look like this `file="engine.go:141`
+			// but f.File provides a full path along with the file name.
+			// So in `formatFilePath()` function I just trimmet everything before the file name
+			// and added a line number in the end
+			return "", fmt.Sprintf("%s:%d", formatFilePath(f.File), f.Line)
+		},
+		PadLevelText:  true,
+		FullTimestamp: false,
+		// Customizing delimiters
+		FieldMap: logrus.FieldMap{
+			logrus.FieldKeyTime:  "@timestamp",
+			logrus.FieldKeyLevel: "severity",
+			logrus.FieldKeyMsg:   "message",
+			logrus.FieldKeyFile:  "file",
+			//logrus.FieldKeyFunc:  "caller",
+		},
+	})
 
 	//Output tos stdout instead of default stderr
 	//can be any io.writter
-	//logrus.SetOutput(os.Stdout)
+	multi := io.MultiWriter(file, os.Stdout)
+	logrus.SetOutput(multi)
 
 	//Only log the warning serverity or above
 	//logrus.SetLevel(logrus.WarnLevel)
+
+	//add the calling method
+	logrus.SetReportCaller(true)
 }
 
 //	@Title			Tag Service API

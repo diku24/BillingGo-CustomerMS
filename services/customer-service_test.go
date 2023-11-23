@@ -30,13 +30,7 @@ func TestCreateService(t *testing.T) {
 
 	result, err := testService.Create(&mockCustomer)
 
-	//assertions for failing
-	assert.Equal(t, mockCustomer.CustomerId, result.CustomerId)
-	assert.Equal(t, mockCustomer.CustomerName, result.CustomerName)
-	assert.Equal(t, mockCustomer.ContactNumber, result.ContactNumber)
-	assert.Equal(t, mockCustomer.Address, result.Address)
-	assert.Equal(t, mockCustomer.Priority, result.Priority)
-	assert.Nil(t, err)
+	assertMe(t, mockCustomer, *result, err)
 
 }
 
@@ -69,13 +63,7 @@ func TestGetByIdService(t *testing.T) {
 
 	result, err := testService.GetById(mockCustomer.CustomerId)
 
-	//assertions for failing
-	assert.Equal(t, mockCustomer.CustomerId, result.CustomerId)
-	assert.Equal(t, mockCustomer.CustomerName, result.CustomerName)
-	assert.Equal(t, mockCustomer.ContactNumber, result.ContactNumber)
-	assert.Equal(t, mockCustomer.Address, result.Address)
-	assert.Equal(t, mockCustomer.Priority, result.Priority)
-	assert.Nil(t, err)
+	assertMe(t, mockCustomer, result, err)
 }
 
 func TestDeleteService(t *testing.T) {
@@ -83,9 +71,9 @@ func TestDeleteService(t *testing.T) {
 	mockRepo := genrateMockRepo(t)
 	mockRepo.EXPECT().DeleteCutomer(mockCustomer.CustomerId).Return(&mockCustomer, nil)
 	testService := services.NewCustomerService(mockRepo)
-	_, err := testService.Delete(mockCustomer.CustomerId)
+	result, err := testService.Delete(mockCustomer.CustomerId)
 
-	assert.Nil(t, err)
+	assertMe(t, mockCustomer, *result, err)
 }
 
 func TestUpdateService(t *testing.T) {
@@ -97,13 +85,7 @@ func TestUpdateService(t *testing.T) {
 
 	result, err := testService.Update(&mockCustomer)
 
-	//assertions for failing
-	assert.Equal(t, mockCustomer.CustomerId, result.CustomerId)
-	assert.Equal(t, mockCustomer.CustomerName, result.CustomerName)
-	assert.Equal(t, mockCustomer.ContactNumber, result.ContactNumber)
-	assert.Equal(t, mockCustomer.Address, result.Address)
-	assert.Equal(t, mockCustomer.Priority, result.Priority)
-	assert.Nil(t, err)
+	assertMe(t, mockCustomer, *result, err)
 }
 
 func genrateMockRepo(t *testing.T) *mocks.MockBillRespository {
@@ -111,4 +93,15 @@ func genrateMockRepo(t *testing.T) *mocks.MockBillRespository {
 	defer control.Finish()
 	mockRepo := mocks.NewMockBillRespository(control)
 	return mockRepo
+}
+
+func assertMe(t *testing.T, mockCustomer models.Customer, result models.Customer, err error) {
+
+	//assertions for failing
+	assert.Equal(t, mockCustomer.CustomerId, result.CustomerId)
+	assert.Equal(t, mockCustomer.CustomerName, result.CustomerName)
+	assert.Equal(t, mockCustomer.ContactNumber, result.ContactNumber)
+	assert.Equal(t, mockCustomer.Address, result.Address)
+	assert.Equal(t, mockCustomer.Priority, result.Priority)
+	assert.Nil(t, err)
 }

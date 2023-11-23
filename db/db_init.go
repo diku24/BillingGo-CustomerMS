@@ -53,7 +53,7 @@ func OpenMysqlConnection() (*gorm.DB, error) {
 }
 
 // Capture connection properties.
-func PingServer() {
+func PingServer() error {
 	// Get a database handle.
 	db, err := OpenMysqlConnection()
 	if err != nil {
@@ -72,6 +72,7 @@ func PingServer() {
 		logrus.Fatal(pingErr)
 	}
 	logrus.Infoln("You are Connected to the  MySQL server " + connectionString + " Database: " + databaseName)
+	return pingErr
 }
 
 // To create the database if not exists

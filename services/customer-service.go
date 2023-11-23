@@ -5,42 +5,44 @@ import (
 	"BillingGo/repository"
 )
 
-type CustomerService struct{}
-
-var repo repository.BillRespository
+type CustomerService struct {
+	repository repository.BillRespository
+}
 
 func NewCustomerService(repoi repository.BillRespository) BillService {
-	repo = repoi
-	return &CustomerService{}
+	return &CustomerService{
+		repository: repoi,
+	}
 }
 
 // Create implements BillService.
-func (*CustomerService) Create(model *models.Customer) (*models.Customer, error) {
+func (r *CustomerService) Create(model *models.Customer) (*models.Customer, error) {
 	//panic("unimplemented")
-	return repo.CreateCutomer(model)
+	//return repo.CreateCutomer(model)
+	return r.repository.CreateCutomer(model)
 }
 
 // GetAll implements BillService.
-func (*CustomerService) GetAll() ([]*models.Customer, error) {
+func (r *CustomerService) GetAll() ([]*models.Customer, error) {
 	//panic("unimplemented")
-	return repo.GetAllCutomer()
+	return r.repository.GetAllCutomer()
 }
 
 // GetById implements BillService.
-func (*CustomerService) GetById(id string) (models.Customer, error) {
+func (r *CustomerService) GetById(id string) (models.Customer, error) {
 	//panic("unimplemented")
-	return repo.GetCutomerById(id)
+	return r.repository.GetCutomerById(id)
 }
 
 // Update implements BillService.
-func (*CustomerService) Update(model *models.Customer) (*models.Customer, error) {
+func (r *CustomerService) Update(model *models.Customer) (*models.Customer, error) {
 	//panic("unimplemented")
 
-	return repo.UpdateCutomer(model)
+	return r.repository.UpdateCutomer(model)
 }
 
 // Delete implements BillService.
-func (*CustomerService) Delete(id string) (*models.Customer, error) {
+func (r *CustomerService) Delete(id string) (*models.Customer, error) {
 	//panic("unimplemented")
-	return repo.DeleteCutomer(id)
+	return r.repository.DeleteCutomer(id)
 }

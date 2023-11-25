@@ -11,9 +11,9 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type CustomerController struct{}
-
-var customerService services.BillService
+type CustomerController struct {
+	service services.BillService
+}
 
 const (
 	contentType     = "content-type"
@@ -21,23 +21,25 @@ const (
 )
 
 func NewCustomerController(service services.BillService) BillHandler {
-	customerService = service
-	return &CustomerController{}
+
+	return &CustomerController{
+		service: service,
+	}
 }
 
 // GET implements BillHandler.
-func (*CustomerController) GET(response http.ResponseWriter, req *http.Request) error {
+func (s *CustomerController) GET(response http.ResponseWriter, req *http.Request) error {
 
 	customerIdParam := req.URL.Query().Get("customer_id")
 	logrus.Infoln(customerIdParam)
 	if customerIdParam != "" {
-		customer, err := customerService.GetById(customerIdParam)
+		customer, err := s.service.GetById(customerIdParam)
 		if err != nil {
 			return WriteJSON(response, http.StatusInternalServerError, billerr.ControllerError{Message: "Error Getting the Record From Database"})
 		}
 		return WriteJSON(response, http.StatusOK, customer)
 	} else {
-		customer, err := customerService.GetAll()
+		customer, err := s.service.GetAll()
 		if err != nil {
 			return WriteJSON(response, http.StatusInternalServerError, billerr.ControllerError{Message: "Error Getting the Record From Database"})
 		}
@@ -47,7 +49,7 @@ func (*CustomerController) GET(response http.ResponseWriter, req *http.Request) 
 }
 
 // POST implements BillHandler.
-func (*CustomerController) POST(response http.ResponseWriter, req *http.Request) error {
+func (s *CustomerController) POST(response http.ResponseWriter, req *http.Request) error {
 
 	var customer models.Customer
 
@@ -57,7 +59,7 @@ func (*CustomerController) POST(response http.ResponseWriter, req *http.Request)
 		return WriteJSON(response, http.StatusBadRequest, billerr.ControllerError{Message: "Error UnMarshiling the Request"})
 	}
 
-	result, err := customerService.Create(&customer)
+	result, err := s.service.Create(&customer)
 	if err != nil {
 		return WriteJSON(response, http.StatusInternalServerError, billerr.ControllerError{Message: "Error Saving the Post Data - customer Data"})
 	}
@@ -66,7 +68,7 @@ func (*CustomerController) POST(response http.ResponseWriter, req *http.Request)
 }
 
 // PUT implements BillHandler.
-func (*CustomerController) PUT(response http.ResponseWriter, req *http.Request) error {
+func (s *CustomerController) PUT(response http.ResponseWriter, req *http.Request) error {
 
 	var customer models.Customer
 	err := json.NewDecoder(req.Body).Decode(&customer)
@@ -74,7 +76,7 @@ func (*CustomerController) PUT(response http.ResponseWriter, req *http.Request) 
 		return WriteJSON(response, http.StatusInternalServerError, billerr.ControllerError{Message: "Error Reading the Params"})
 	}
 
-	tempCustomer, err := customerService.Update(&customer)
+	tempCustomer, err := s.service.Update(&customer)
 	if err != nil {
 		return WriteJSON(response, http.StatusInternalServerError, billerr.ControllerError{Message: "Error Reading the Params"})
 	}
@@ -85,12 +87,12 @@ func (*CustomerController) PUT(response http.ResponseWriter, req *http.Request) 
 }
 
 // DELETE implements BillHandler.
-func (*CustomerController) DELETE(response http.ResponseWriter, req *http.Request) error {
+func (s *CustomerController) DELETE(response http.ResponseWriter, req *http.Request) error {
 
 	customerId := mux.Vars(req)["customer_id"]
 	//customerId := req.URL.Query().Get("customer_id")
 	logrus.Infoln("Id to be deleted - Handler : ", customerId)
-	resultCustomer, err := customerService.Delete(customerId)
+	resultCustomer, err := s.service.Delete(customerId)
 	if err != nil {
 		return err
 	}

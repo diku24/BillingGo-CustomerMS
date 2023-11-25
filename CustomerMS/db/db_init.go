@@ -4,6 +4,7 @@ import (
 	"BillingGo/models"
 	"BillingGo/utils"
 
+	"github.com/DATA-DOG/go-sqlmock"
 	sqlmy "github.com/go-sql-driver/mysql"
 	"github.com/sirupsen/logrus"
 
@@ -12,22 +13,21 @@ import (
 )
 
 var (
-	//db               *gorm.DB
-	//err              error
-	dbUser            = utils.EnvVarRead("DATABASEUSER")
-	dbPass            = utils.EnvVarRead("DATABASEPASS")
-	connectionString  = utils.EnvVarRead("DBCONNECTION")
-	databaseName      = utils.EnvVarRead("DATABASE")
-	networkProtcol    = utils.EnvVarRead("NETPROTOCOL")
+	dbUser            = utils.EnvVarRead(`DATABASEUSER`)
+	dbPass            = utils.EnvVarRead(`DATABASEPASS`)
+	connectionString  = utils.EnvVarRead(`DBCONNECTION`)
+	databaseName      = utils.EnvVarRead(`DATABASE`)
+	networkProtcol    = utils.EnvVarRead(`NETPROTOCOL`)
 	customer          models.Customer
 	datetimePrecision = 30
 	sqlConfig         = sqlmy.Config{
-		User:      dbUser,
-		Passwd:    dbPass,
-		Net:       networkProtcol,
-		Addr:      connectionString,
-		DBName:    databaseName,
-		ParseTime: true,
+		User:                 dbUser,
+		Passwd:               dbPass,
+		Net:                  networkProtcol,
+		Addr:                 connectionString,
+		DBName:               databaseName,
+		ParseTime:            true,
+		AllowNativePasswords: true,
 	}
 
 	gormConfig = mysql.Config{
@@ -37,7 +37,7 @@ var (
 		DefaultDatetimePrecision:  &datetimePrecision, // default datetime precision
 		DontSupportRenameIndex:    true,               // drop & create index when rename index, rename index not supported before MySQL 5.7, MariaDB
 		DontSupportRenameColumn:   true,               // use change when rename column, rename rename not supported before MySQL 8, MariaDB
-		SkipInitializeWithVersion: false,
+		SkipInitializeWithVersion: false,              // auto configure based on currently MySQL version
 	}
 )
 
@@ -53,7 +53,7 @@ func OpenMysqlConnection() (*gorm.DB, error) {
 }
 
 // Capture connection properties.
-func PingServer() {
+func PingServer() error {
 	// Get a database handle.
 	db, err := OpenMysqlConnection()
 	if err != nil {
@@ -72,6 +72,12 @@ func PingServer() {
 		logrus.Fatal(pingErr)
 	}
 	logrus.Infoln("You are Connected to the  MySQL server " + connectionString + " Database: " + databaseName)
+	return pingErr
+}
+
+// To create the database if not exists
+func DatabaseCreation() error {
+	return nil
 }
 
 func TableCreation() error {
@@ -89,7 +95,7 @@ func TableCreation() error {
 		logrus.Println("Table Dropped Successfully")
 
 		//create customer Table
-		createtablerr := db.Migrator().CreateTable(&customer)
+		createtablerr := db.AutoMigrate(&customer)
 		if createtablerr != nil {
 			return createtablerr
 		}
@@ -98,4 +104,23 @@ func TableCreation() error {
 
 	return nil
 
+}
+
+func NewMockDB() (*gorm.DB, sqlmock.Sqlmock) {
+	db, mock, err := sqlmock.New()
+
+	if err != nil {
+		logrus.Fatalf("An error '%s' was not expected when opening a stub database connection", err)
+	}
+
+	gormDB, err := gorm.Open(mysql.New(mysql.Config{
+		Conn:                      db,
+		SkipInitializeWithVersion: true,
+	}), &gorm.Config{})
+
+	if err != nil {
+		logrus.Fatalf("An error '%s' was not expected when opening gorm database", err)
+	}
+
+	return gormDB, mock
 }

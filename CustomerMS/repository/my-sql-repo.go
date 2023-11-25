@@ -77,9 +77,9 @@ func (m *MySQLRepository) CreateCutomer(model *models.Customer) (*models.Custome
 		DeletedAt:     model.DeletedAt,
 	}
 
-	err := m.DB.Create(&customer).Error
+	result := m.DB.Create(&customer)
 
-	return &customer, err
+	return &customer, result.Error
 
 }
 

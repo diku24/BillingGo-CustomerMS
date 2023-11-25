@@ -6,6 +6,7 @@ import (
 	"BillingGo/models"
 	"bytes"
 	"encoding/json"
+	"errors"
 	"io"
 	"net/http"
 	"net/http/httptest"
@@ -18,16 +19,21 @@ import (
 )
 
 var (
-	testResults  []models.Customer
-	testResult   models.Customer
-	mockCustomer = models.Customer{
-		CustomerId:    "1",
+	testResults []models.Customer
+	testResult  models.Customer
+	// mockCustomer = models.Customer{
+	// 	CustomerId:    "1",
+	// 	CustomerName:  "Diku",
+	// 	ContactNumber: "345-345-345",
+	// 	Address:       "Ahmednagar",
+	// 	Priority:      "High",
+	// }
+	mockFailCustomer = models.Customer{
+		CustomerId:    "",
 		CustomerName:  "Diku",
 		ContactNumber: "345-345-345",
 		Address:       "Ahmednagar",
 		Priority:      "High",
-		//CreatedAt:     time.Now().UTC(),
-		//UpdatedAt:     time.Now().UTC(),
 	}
 
 	mockCustomerBytes = []byte(`{
@@ -53,6 +59,14 @@ func generateMockService(t *testing.T) *mocks.MockBillService {
 }
 
 func TestPOST(t *testing.T) {
+
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
 
 	mockService := generateMockService(t)
 
@@ -86,7 +100,62 @@ func TestPOST(t *testing.T) {
 	assert.Equal(t, mockCustomer.Priority, testResult.Priority)
 }
 
+func TestPOSTFail(t *testing.T) {
+
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
+
+	mockService := generateMockService(t)
+
+	//mockService.EXPECT().Create(&mockCustomer).Return(&mockCustomer, nil)
+	call1 := mockService.EXPECT().Create(&mockCustomer)
+	call2 := mockService.EXPECT().Create(nil)
+
+	mockErr := errors.New("Mock err")
+	call1.Return(&mockCustomer, nil)
+	call2.Return(nil, mockErr)
+
+	testControl := handler.NewCustomerController(mockService)
+
+	response := httptest.NewRecorder()
+
+	request := httptest.NewRequest(http.MethodPost, uriCustomer, bytes.NewBuffer(nil))
+
+	err := testControl.POST(response, request)
+	if err != nil {
+		t.Errorf(err.Error())
+	}
+
+	result := response.Result()
+
+	//Decode the http responce
+	errr := json.NewDecoder(io.Reader(response.Body)).Decode(&testResult)
+	if errr != nil {
+		t.Error(errr.Error())
+	}
+
+	//assertions for failing
+	assert.Equal(t, http.StatusBadRequest, result.StatusCode)
+	//assert.Equal(t, http.StatusInternalServerError, result.StatusCode)
+	//assert.Empty(t, testResult)
+
+}
+
 func TestGETAll(t *testing.T) {
+
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
+
 	mockService := generateMockService(t)
 
 	mockService.EXPECT().GetAll().Return([]*models.Customer{&mockCustomer}, nil)
@@ -117,6 +186,14 @@ func TestGETAll(t *testing.T) {
 }
 
 func TestGETById(t *testing.T) {
+
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
 	mockService := generateMockService(t)
 
 	mockService.EXPECT().GetById(mockCustomer.CustomerId).Return(mockCustomer, nil)
@@ -148,6 +225,14 @@ func TestGETById(t *testing.T) {
 }
 
 func TestUpdate(t *testing.T) {
+
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
 
 	mockService := generateMockService(t)
 
@@ -182,6 +267,14 @@ func TestUpdate(t *testing.T) {
 }
 
 func TestDELETE(t *testing.T) {
+
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
 	mockService := generateMockService(t)
 
 	//mockService.EXPECT().Delete(mockCustomer.CustomerId).Return(&mockCustomer, nil)

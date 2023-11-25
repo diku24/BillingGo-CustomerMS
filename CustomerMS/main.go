@@ -150,7 +150,7 @@ func main() {
 	httpRouter.GET(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.GET))
 	httpRouter.DELETE(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.DELETE))
 	httpRouter.POST(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.POST))
-	httpRouter.UPDATE(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.PUT))
+	httpRouter.UPDATE(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.PUT))
 	httpRouter.SERVE(port)
 
 	<-idelConnectionClosed

@@ -1,8 +1,8 @@
 package services
 
 import (
-	"BillingGo/models"
-	"BillingGo/repository"
+	"CustomerMS/models"
+	"CustomerMS/repository"
 )
 
 type CustomerService struct {

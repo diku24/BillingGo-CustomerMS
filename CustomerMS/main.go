@@ -2,24 +2,21 @@
 package main
 
 import (
-	"BillingGo/api"
-	dbInit "BillingGo/db"
-	_ "BillingGo/docs"
-	"BillingGo/handler"
-	logger "BillingGo/logger"
-	"BillingGo/repository"
+	"CustomerMS/api"
+	dbInit "CustomerMS/db"
+	"CustomerMS/handler"
+	"CustomerMS/logger"
+	"CustomerMS/repository"
+	"CustomerMS/services"
+	"CustomerMS/utils"
+	"context"
 	"fmt"
 	"io"
-	"runtime"
-	"strings"
-
-	"BillingGo/services"
-	"BillingGo/utils"
-
-	"context"
 	"net/http"
 	"os"
 	"os/signal"
+	"runtime"
+	"strings"
 	"syscall"
 	"time"
 
@@ -150,7 +147,7 @@ func main() {
 	httpRouter.GET(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.GET))
 	httpRouter.DELETE(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.DELETE))
 	httpRouter.POST(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.POST))
-	httpRouter.UPDATE(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.PUT))
+	httpRouter.UPDATE(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.PUT))
 	httpRouter.SERVE(port)
 
 	<-idelConnectionClosed

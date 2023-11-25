@@ -1,6 +1,6 @@
 package repository
 
-import "BillingGo/models"
+import "CustomerMS/models"
 
 type BillRespository interface {
 	CreateCutomer(model *models.Customer) (*models.Customer, error)

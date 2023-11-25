@@ -1,9 +1,9 @@
 package repository
 
 import (
-	repository "BillingGo/db"
-	"BillingGo/models"
-	"BillingGo/utils"
+	repository "CustomerMS/db"
+	"CustomerMS/models"
+	"CustomerMS/utils"
 	"errors"
 
 	sqlmy "github.com/go-sql-driver/mysql"

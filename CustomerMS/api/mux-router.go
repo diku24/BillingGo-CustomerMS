@@ -1,8 +1,8 @@
 package api
 
 import (
-	localError "BillingGo/errors"
-	"BillingGo/handler"
+	localError "CustomerMS/errors"
+	"CustomerMS/handler"
 	"context"
 	"errors"
 	"net/http"

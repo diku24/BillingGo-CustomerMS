@@ -1,7 +1,7 @@
 package api
 
 import (
-	"BillingGo/mocks"
+	"CustomerMS/mocks"
 	"context"
 	"net/http"
 	"reflect"

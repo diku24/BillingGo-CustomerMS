@@ -1,9 +1,9 @@
 package repository_test
 
 import (
-	dbinit "BillingGo/db"
-	"BillingGo/models"
-	"BillingGo/repository"
+	dbinit "CustomerMS/db"
+	"CustomerMS/models"
+	"CustomerMS/repository"
 	"reflect"
 	"testing"
 

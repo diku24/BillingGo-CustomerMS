@@ -1,7 +1,7 @@
 package services
 
 import (
-	"BillingGo/models"
+	"CustomerMS/models"
 )
 
 type BillService interface {

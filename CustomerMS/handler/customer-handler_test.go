@@ -1,9 +1,9 @@
 package handler_test
 
 import (
-	"BillingGo/handler"
-	"BillingGo/mocks"
-	"BillingGo/models"
+	"CustomerMS/handler"
+	"CustomerMS/mocks"
+	"CustomerMS/models"
 	"bytes"
 	"encoding/json"
 	"errors"

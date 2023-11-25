@@ -1,9 +1,10 @@
 package handler
 
 import (
-	billerr "BillingGo/errors"
-	"BillingGo/models"
-	"BillingGo/services"
+	billerr "CustomerMS/errors"
+	"CustomerMS/models"
+	"CustomerMS/services"
+
 	"encoding/json"
 	"net/http"
 

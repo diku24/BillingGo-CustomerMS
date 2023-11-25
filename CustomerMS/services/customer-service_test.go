@@ -1,9 +1,9 @@
 package services_test
 
 import (
-	"BillingGo/mocks"
-	"BillingGo/models"
-	"BillingGo/services"
+	"CustomerMS/mocks"
+	"CustomerMS/models"
+	"CustomerMS/services"
 	"testing"
 
 	"github.com/stretchr/testify/assert"

@@ -1,0 +1,376 @@
+25251-11-25 13:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2023-11-25 13:56:16" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+25251-11-25 13:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 13:58:01" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25251-11-25 13:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 13:58:01" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25251-11-25 13:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 13:58:02" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25251-11-25 13:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 13:58:02" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25251-11-25 13:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 13:58:02" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25251-11-25 13:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 13:58:02" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25251-11-25 13:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 13:58:03" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25251-11-25 13:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 13:58:03" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25251-11-25 13:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 13:58:03" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25251-11-25 13:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 13:58:03" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25251-11-25 13:09:09: 
+@timestamp="2023-11-25 13:58:58" severity=info file="customer-handler.go:35"
+25251-11-25 13:09:09: No of Rows affected: 13
+@timestamp="2023-11-25 13:58:58" severity=info message="No of Rows affected: 13" file="my-sql-repo.go:113"
+25252-11-25 14:09:09: Service interrupt received !!
+@timestamp="2023-11-25 14:00:07" severity=info message="Service interrupt received !!" file="main.go:120"
+25252-11-25 14:09:09: Shutdown Completed !!
+@timestamp="2023-11-25 14:00:07" severity=info message="Shutdown Completed !!" file="main.go:128"
+25252-11-25 14:09:09: Service is Stopped Successfully!
+@timestamp="2023-11-25 14:00:07" severity=info message="Service is Stopped Successfully!" file="main.go:154"
+25252-11-25 14:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2023-11-25 14:00:42" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+25252-11-25 14:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 14:00:53" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25252-11-25 14:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 14:00:53" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25252-11-25 14:09:09: You have enter id: 123456
+@timestamp="2023-11-25 14:00:54" severity=info message="You have enter id: 123456" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:54" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:54" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0000b2000 0}
+@timestamp="2023-11-25 14:00:54" severity=info message="&{0xc0001b23f0 record not found 0 0xc0000b2000 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 123456
+@timestamp="2023-11-25 14:00:54" severity=error message="No Records Found for Entered Id: 123456" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST
+@timestamp="2023-11-25 14:00:54" severity=info message="Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:54" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:54" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:54" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0002a1180 0}
+@timestamp="2023-11-25 14:00:54" severity=info message="&{0xc0001b23f0 record not found 0 0xc0002a1180 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:54" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST
+@timestamp="2023-11-25 14:00:54" severity=info message="Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: 85
+@timestamp="2023-11-25 14:00:54" severity=info message=85 file="customer-handler.go:35"
+25252-11-25 14:09:09: You have enter id: 85
+@timestamp="2023-11-25 14:00:54" severity=info message="You have enter id: 85" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:54" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:54" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0000b21c0 0}
+@timestamp="2023-11-25 14:00:54" severity=info message="&{0xc0001b23f0 record not found 0 0xc0000b21c0 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 85
+@timestamp="2023-11-25 14:00:54" severity=error message="No Records Found for Entered Id: 85" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST
+@timestamp="2023-11-25 14:00:54" severity=info message="Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Id to be deleted - Handler :  86
+@timestamp="2023-11-25 14:00:54" severity=info message="Id to be deleted - Handler :  86" file="customer-handler.go:95"
+25252-11-25 14:09:09: You have entered Id: 86
+@timestamp="2023-11-25 14:00:54" severity=info message="You have entered Id: 86" file="my-sql-repo.go:156"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:54" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:54" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:54" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc000218700 0}
+@timestamp="2023-11-25 14:00:54" severity=info message="&{0xc0001b23f0 record not found 0 0xc000218700 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:54" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST
+@timestamp="2023-11-25 14:00:54" severity=info message="Values 101 Mckenna 2023-11-25 14:00:53.7258237 +0530 IST" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:54" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:159"
+25252-11-25 14:09:09: 
+@timestamp="2023-11-25 14:00:54" severity=info file="customer-handler.go:35"
+25252-11-25 14:09:09: No of Rows affected: 14
+@timestamp="2023-11-25 14:00:54" severity=info message="No of Rows affected: 14" file="my-sql-repo.go:113"
+25252-11-25 14:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 14:00:54" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25252-11-25 14:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 14:00:54" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25252-11-25 14:09:09: You have enter id: 123456
+@timestamp="2023-11-25 14:00:55" severity=info message="You have enter id: 123456" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 1
+@timestamp="2023-11-25 14:00:55" severity=info message=1 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: <nil>
+@timestamp="2023-11-25 14:00:55" severity=error message="<nil>" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 <nil> 1 0xc0002188c0 0}
+@timestamp="2023-11-25 14:00:55" severity=info message="&{0xc0001b23f0 <nil> 1 0xc0002188c0 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: Values 123456 Elmer 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:55" severity=info message="Values 123456 Elmer 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Record Before changes:  {123456 Elmer 834-626-9410 Danville high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:28:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:55" severity=info message="Record Before changes:  {123456 Elmer 834-626-9410 Danville high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:28:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:140"
+25252-11-25 14:09:09: Record after changes {123456 Elmer 834-626-9410 Danville high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:28:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:55" severity=info message="Record after changes {123456 Elmer 834-626-9410 Danville high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:28:02 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:148"
+25252-11-25 14:09:09: Customer after Updated - handler:  &{123456 Amya 411-966-6250 Lake Noemyburgh high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:55" severity=info message="Customer after Updated - handler:  &{123456 Amya 411-966-6250 Lake Noemyburgh high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="customer-handler.go:85"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:55" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:55" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:55" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc000219180 0}
+@timestamp="2023-11-25 14:00:55" severity=info message="&{0xc0001b23f0 record not found 0 0xc000219180 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:55" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:55" severity=info message="Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: 85
+@timestamp="2023-11-25 14:00:55" severity=info message=85 file="customer-handler.go:35"
+25252-11-25 14:09:09: You have enter id: 85
+@timestamp="2023-11-25 14:00:55" severity=info message="You have enter id: 85" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:55" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:55" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0002a1880 0}
+@timestamp="2023-11-25 14:00:55" severity=info message="&{0xc0001b23f0 record not found 0 0xc0002a1880 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 85
+@timestamp="2023-11-25 14:00:55" severity=error message="No Records Found for Entered Id: 85" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:55" severity=info message="Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Id to be deleted - Handler :  86
+@timestamp="2023-11-25 14:00:55" severity=info message="Id to be deleted - Handler :  86" file="customer-handler.go:95"
+25252-11-25 14:09:09: You have entered Id: 86
+@timestamp="2023-11-25 14:00:55" severity=info message="You have entered Id: 86" file="my-sql-repo.go:156"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:55" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:55" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:55" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc000219340 0}
+@timestamp="2023-11-25 14:00:55" severity=info message="&{0xc0001b23f0 record not found 0 0xc000219340 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:55" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:55" severity=info message="Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:55" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:159"
+25252-11-25 14:09:09: 
+@timestamp="2023-11-25 14:00:55" severity=info file="customer-handler.go:35"
+25252-11-25 14:09:09: No of Rows affected: 14
+@timestamp="2023-11-25 14:00:55" severity=info message="No of Rows affected: 14" file="my-sql-repo.go:113"
+25252-11-25 14:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 14:00:55" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25252-11-25 14:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 14:00:55" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25252-11-25 14:09:09: You have enter id: 123456
+@timestamp="2023-11-25 14:00:56" severity=info message="You have enter id: 123456" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 1
+@timestamp="2023-11-25 14:00:56" severity=info message=1 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: <nil>
+@timestamp="2023-11-25 14:00:56" severity=error message="<nil>" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 <nil> 1 0xc0000b2c40 0}
+@timestamp="2023-11-25 14:00:56" severity=info message="&{0xc0001b23f0 <nil> 1 0xc0000b2c40 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:56" severity=info message="Values 123456 Amya 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Record Before changes:  {123456 Amya 411-966-6250 Lake Noemyburgh high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:55 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:56" severity=info message="Record Before changes:  {123456 Amya 411-966-6250 Lake Noemyburgh high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:55 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:140"
+25252-11-25 14:09:09: Record after changes {123456 Amya 411-966-6250 Lake Noemyburgh high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:55 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:56" severity=info message="Record after changes {123456 Amya 411-966-6250 Lake Noemyburgh high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:55 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:148"
+25252-11-25 14:09:09: Customer after Updated - handler:  &{123456 Allison 976-895-9114 West Bettie high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:56" severity=info message="Customer after Updated - handler:  &{123456 Allison 976-895-9114 West Bettie high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="customer-handler.go:85"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:56" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:56" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:56" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0000b3500 0}
+@timestamp="2023-11-25 14:00:56" severity=info message="&{0xc0001b23f0 record not found 0 0xc0000b3500 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:56" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:56" severity=info message="Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: 85
+@timestamp="2023-11-25 14:00:56" severity=info message=85 file="customer-handler.go:35"
+25252-11-25 14:09:09: You have enter id: 85
+@timestamp="2023-11-25 14:00:56" severity=info message="You have enter id: 85" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:56" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:56" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0000b36c0 0}
+@timestamp="2023-11-25 14:00:56" severity=info message="&{0xc0001b23f0 record not found 0 0xc0000b36c0 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 85
+@timestamp="2023-11-25 14:00:56" severity=error message="No Records Found for Entered Id: 85" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:56" severity=info message="Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Id to be deleted - Handler :  86
+@timestamp="2023-11-25 14:00:56" severity=info message="Id to be deleted - Handler :  86" file="customer-handler.go:95"
+25252-11-25 14:09:09: You have entered Id: 86
+@timestamp="2023-11-25 14:00:56" severity=info message="You have entered Id: 86" file="my-sql-repo.go:156"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:56" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:56" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:56" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0002a1c00 0}
+@timestamp="2023-11-25 14:00:56" severity=info message="&{0xc0001b23f0 record not found 0 0xc0002a1c00 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:56" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:56" severity=info message="Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:56" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:159"
+25252-11-25 14:09:09: 
+@timestamp="2023-11-25 14:00:56" severity=info file="customer-handler.go:35"
+25252-11-25 14:09:09: No of Rows affected: 14
+@timestamp="2023-11-25 14:00:56" severity=info message="No of Rows affected: 14" file="my-sql-repo.go:113"
+25252-11-25 14:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 14:00:56" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25252-11-25 14:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 14:00:56" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25252-11-25 14:09:09: You have enter id: 123456
+@timestamp="2023-11-25 14:00:56" severity=info message="You have enter id: 123456" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 1
+@timestamp="2023-11-25 14:00:56" severity=info message=1 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: <nil>
+@timestamp="2023-11-25 14:00:56" severity=error message="<nil>" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 <nil> 1 0xc0003341c0 0}
+@timestamp="2023-11-25 14:00:56" severity=info message="&{0xc0001b23f0 <nil> 1 0xc0003341c0 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:56" severity=info message="Values 123456 Allison 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Record Before changes:  {123456 Allison 976-895-9114 West Bettie high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:56 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:56" severity=info message="Record Before changes:  {123456 Allison 976-895-9114 West Bettie high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:56 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:140"
+25252-11-25 14:09:09: Record after changes {123456 Allison 976-895-9114 West Bettie high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:56 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:56" severity=info message="Record after changes {123456 Allison 976-895-9114 West Bettie high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:56 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:148"
+25252-11-25 14:09:09: Customer after Updated - handler:  &{123456 Geovanni 339-818-0988 South Dorothea high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:57" severity=info message="Customer after Updated - handler:  &{123456 Geovanni 339-818-0988 South Dorothea high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="customer-handler.go:85"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:57" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:57" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:57" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc000219dc0 0}
+@timestamp="2023-11-25 14:00:57" severity=info message="&{0xc0001b23f0 record not found 0 0xc000219dc0 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:57" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:57" severity=info message="Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: 85
+@timestamp="2023-11-25 14:00:57" severity=info message=85 file="customer-handler.go:35"
+25252-11-25 14:09:09: You have enter id: 85
+@timestamp="2023-11-25 14:00:57" severity=info message="You have enter id: 85" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:57" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:57" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0000b3c00 0}
+@timestamp="2023-11-25 14:00:57" severity=info message="&{0xc0001b23f0 record not found 0 0xc0000b3c00 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 85
+@timestamp="2023-11-25 14:00:57" severity=error message="No Records Found for Entered Id: 85" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:57" severity=info message="Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Id to be deleted - Handler :  86
+@timestamp="2023-11-25 14:00:57" severity=info message="Id to be deleted - Handler :  86" file="customer-handler.go:95"
+25252-11-25 14:09:09: You have entered Id: 86
+@timestamp="2023-11-25 14:00:57" severity=info message="You have entered Id: 86" file="my-sql-repo.go:156"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:57" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:57" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:57" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc000334a80 0}
+@timestamp="2023-11-25 14:00:57" severity=info message="&{0xc0001b23f0 record not found 0 0xc000334a80 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:57" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:57" severity=info message="Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:57" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:159"
+25252-11-25 14:09:09: 
+@timestamp="2023-11-25 14:00:57" severity=info file="customer-handler.go:35"
+25252-11-25 14:09:09: No of Rows affected: 14
+@timestamp="2023-11-25 14:00:57" severity=info message="No of Rows affected: 14" file="my-sql-repo.go:113"
+25252-11-25 14:09:09: SERVER IS RUNNNING !!
+@timestamp="2023-11-25 14:00:57" severity=info message="SERVER IS RUNNNING !!" file="main.go:140"
+25252-11-25 14:09:09: You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication
+@timestamp="2023-11-25 14:00:57" severity=info message="You are Connected to the  MySQL server 127.0.0.1:3306 Database: billingapplication" file="db_init.go:74"
+25252-11-25 14:09:09: You have enter id: 123456
+@timestamp="2023-11-25 14:00:58" severity=info message="You have enter id: 123456" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 1
+@timestamp="2023-11-25 14:00:58" severity=info message=1 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: <nil>
+@timestamp="2023-11-25 14:00:58" severity=error message="<nil>" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 <nil> 1 0xc000334fc0 0}
+@timestamp="2023-11-25 14:00:58" severity=info message="&{0xc0001b23f0 <nil> 1 0xc000334fc0 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:58" severity=info message="Values 123456 Geovanni 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Record Before changes:  {123456 Geovanni 339-818-0988 South Dorothea high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:57 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:58" severity=info message="Record Before changes:  {123456 Geovanni 339-818-0988 South Dorothea high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:57 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:140"
+25252-11-25 14:09:09: Record after changes {123456 Geovanni 339-818-0988 South Dorothea high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:57 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:58" severity=info message="Record after changes {123456 Geovanni 339-818-0988 South Dorothea high 2023-11-25 08:28:02 +0000 UTC 2023-11-25 08:30:57 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="my-sql-repo.go:148"
+25252-11-25 14:09:09: Customer after Updated - handler:  &{123456 Lilian 842-912-3186 West Crawfordbury high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+@timestamp="2023-11-25 14:00:58" severity=info message="Customer after Updated - handler:  &{123456 Lilian 842-912-3186 West Crawfordbury high 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}" file="customer-handler.go:85"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:58" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:58" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:58" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc0000b3dc0 0}
+@timestamp="2023-11-25 14:00:58" severity=info message="&{0xc0001b23f0 record not found 0 0xc0000b3dc0 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:58" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Lilian 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:58" severity=info message="Values 123456 Lilian 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: 85
+@timestamp="2023-11-25 14:00:58" severity=info message=85 file="customer-handler.go:35"
+25252-11-25 14:09:09: You have enter id: 85
+@timestamp="2023-11-25 14:00:58" severity=info message="You have enter id: 85" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:58" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:58" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc000416000 0}
+@timestamp="2023-11-25 14:00:58" severity=info message="&{0xc0001b23f0 record not found 0 0xc000416000 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 85
+@timestamp="2023-11-25 14:00:58" severity=error message="No Records Found for Entered Id: 85" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Lilian 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:58" severity=info message="Values 123456 Lilian 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: Id to be deleted - Handler :  86
+@timestamp="2023-11-25 14:00:58" severity=info message="Id to be deleted - Handler :  86" file="customer-handler.go:95"
+25252-11-25 14:09:09: You have entered Id: 86
+@timestamp="2023-11-25 14:00:58" severity=info message="You have entered Id: 86" file="my-sql-repo.go:156"
+25252-11-25 14:09:09: You have enter id: 86
+@timestamp="2023-11-25 14:00:58" severity=info message="You have enter id: 86" file="my-sql-repo.go:90"
+25252-11-25 14:09:09: 0
+@timestamp="2023-11-25 14:00:58" severity=info message=0 file="my-sql-repo.go:92"
+25252-11-25 14:09:09: record not found
+@timestamp="2023-11-25 14:00:58" severity=error message="record not found" file="my-sql-repo.go:94"
+25252-11-25 14:09:09: &{0xc0001b23f0 record not found 0 0xc000335880 0}
+@timestamp="2023-11-25 14:00:58" severity=info message="&{0xc0001b23f0 record not found 0 0xc000335880 0}" file="my-sql-repo.go:95"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:58" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:98"
+25252-11-25 14:09:09: Values 123456 Lilian 2023-11-25 08:28:02 +0000 UTC
+@timestamp="2023-11-25 14:00:58" severity=info message="Values 123456 Lilian 2023-11-25 08:28:02 +0000 UTC" file="my-sql-repo.go:101"
+25252-11-25 14:09:09: No Records Found for Entered Id: 86
+@timestamp="2023-11-25 14:00:58" severity=error message="No Records Found for Entered Id: 86" file="my-sql-repo.go:159"
+25252-11-25 14:09:09: 
+@timestamp="2023-11-25 14:00:58" severity=info file="customer-handler.go:35"
+25252-11-25 14:09:09: No of Rows affected: 14
+@timestamp="2023-11-25 14:00:58" severity=info message="No of Rows affected: 14" file="my-sql-repo.go:113"
+25252-11-25 14:09:09: Service interrupt received !!
+@timestamp="2023-11-25 14:01:34" severity=info message="Service interrupt received !!" file="main.go:120"
+25252-11-25 14:09:09: Shutdown Completed !!
+@timestamp="2023-11-25 14:01:34" severity=info message="Shutdown Completed !!" file="main.go:128"
+25252-11-25 14:09:09: Service is Stopped Successfully!
+@timestamp="2023-11-25 14:01:34" severity=info message="Service is Stopped Successfully!" file="main.go:154"

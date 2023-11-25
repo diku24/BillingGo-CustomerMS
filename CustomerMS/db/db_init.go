@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"BillingGo/models"
-	"BillingGo/utils"
+	"CustomerMS/models"
+	"CustomerMS/utils"
 
 	"github.com/DATA-DOG/go-sqlmock"
 	sqlmy "github.com/go-sql-driver/mysql"

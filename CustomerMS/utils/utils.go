@@ -7,7 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-var filePath string = "C:/Users/Dinesh/go/src/BillingGo/config/configuration.env"
+var filePath string = "C:/Users/Dinesh/go/src/BillingGo/CustomerMS/config/configuration.env"
 
 func EnvVarRead(key string) string {
 	//err := godotenv.Load("config/configuration.env")

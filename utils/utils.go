@@ -1,17 +1,24 @@
 package utils
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/joho/godotenv"
 	"github.com/sirupsen/logrus"
 )
 
-var filePath string = "C:/Users/Dinesh/go/src/BillingGo/CustomerMS/config/configuration.env"
-
 func EnvVarRead(key string) string {
+	var filePath string
 	//err := godotenv.Load("config/configuration.env")
-	err := godotenv.Load(filePath)
+	currentWorkingDirectory, err := os.Getwd()
+	if err != nil {
+		logrus.Errorf("Eroor Loading Current working directory: %v", err)
+	}
+
+	filePath = fmt.Sprintf("%v\\config\\configuration.env", currentWorkingDirectory)
+
+	err = godotenv.Load(filePath)
 	if err != nil {
 		logrus.Errorf("Error Loading Configuration file: %v For the Key: %v", err, key)
 		return err.Error()

@@ -16,7 +16,8 @@ func EnvVarRead(key string) string {
 		logrus.Errorf("Eroor Loading Current working directory: %v", err)
 	}
 
-	filePath = fmt.Sprintf("%v\\config\\configuration.env", currentWorkingDirectory)
+	//filePath = fmt.Sprintf("%v\\config\\configuration.env", currentWorkingDirectory)
+	filePath = fmt.Sprintf("%v/config/configuration.env", currentWorkingDirectory)
 
 	err = godotenv.Load(filePath)
 	if err != nil {

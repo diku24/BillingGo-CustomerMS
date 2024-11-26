@@ -28,7 +28,19 @@ func NewCustomerController(service services.BillService) BillHandler {
 	}
 }
 
-// GET implements BillHandler.
+// Get Customers
+//
+//	@Summary		Get customers
+//	@Description	Get all customers if no customer_is provided else get customer of the passed Id.
+//	@Tags			Customers
+//	@Accept			json
+//	@Produce		json
+//	@Param			id						path		int	true	"customer_id"
+//	@Success		200						{object}	models.Customer
+//	@Failure		400						{object}	errors.HTTPError
+//	@Failure		404						{object}	errors.HTTPError
+//	@Failure		500						{object}	errors.HTTPError
+//	@Router			/customer/{customer_id}	[get]
 func (s *CustomerController) GET(response http.ResponseWriter, req *http.Request) error {
 
 	customerIdParam := req.URL.Query().Get("customer_id")
@@ -49,7 +61,19 @@ func (s *CustomerController) GET(response http.ResponseWriter, req *http.Request
 
 }
 
-// POST implements BillHandler.
+// Create Customer
+//
+//	@Summary		Create customers
+//	@Description	Create customers.
+//	@Tags			Customers
+//	@Accept			json
+//	@Produce		json
+//	@Param			customer	body		models.Customer	true	"Create customer"
+//	@Success		200			{object}	models.Customer
+//	@Failure		400			{object}	errors.HTTPError
+//	@Failure		404			{object}	errors.HTTPError
+//	@Failure		500			{object}	errors.HTTPError
+//	@Router			/customer	[post]
 func (s *CustomerController) POST(response http.ResponseWriter, req *http.Request) error {
 
 	var customer models.Customer
@@ -68,7 +92,20 @@ func (s *CustomerController) POST(response http.ResponseWriter, req *http.Reques
 
 }
 
-// PUT implements BillHandler.
+// UPDATE Customers
+//
+//	@Summary		update customers
+//	@Description	update customers.
+//	@Tags			Customers
+//	@Accept			json
+//	@Produce		json
+//	@Param			id				path		int				true	"customer_id"
+//	@Param			customer		body		models.Customer	true	"Update customer"
+//	@Success		200				{object}	models.Customer
+//	@Failure		400				{object}	errors.HTTPError
+//	@Failure		404				{object}	errors.HTTPError
+//	@Failure		500				{object}	errors.HTTPError
+//	@Router			/customer/{id}	[put]
 func (s *CustomerController) PUT(response http.ResponseWriter, req *http.Request) error {
 
 	var customer models.Customer
@@ -87,7 +124,19 @@ func (s *CustomerController) PUT(response http.ResponseWriter, req *http.Request
 
 }
 
-// DELETE implements BillHandler.
+// DELETE Cusomters
+//
+//	@Summary		Delete an customer
+//	@Description	Delete by customer ID
+//	@Tags			Customer
+//	@Accept			json
+//	@Produce		json
+//	@Param			id	path		int	true	"Customer ID"	Format(int64)
+//	@Success		204	{object}	models.Customer
+//	@Failure		400	{object}	errors.HTTPError
+//	@Failure		404	{object}	errors.HTTPError
+//	@Failure		500	{object}	errors.HTTPError
+//	@Router			/customer/{customer_id} [delete]
 func (s *CustomerController) DELETE(response http.ResponseWriter, req *http.Request) error {
 
 	customerId := mux.Vars(req)["customer_id"]

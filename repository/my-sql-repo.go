@@ -72,9 +72,6 @@ func (m *MySQLRepository) CreateCutomer(model *models.Customer) (*models.Custome
 		ContactNumber: model.ContactNumber,
 		Address:       model.Address,
 		Priority:      model.Priority,
-		CreatedAt:     model.CreatedAt,
-		UpdatedAt:     model.UpdatedAt,
-		DeletedAt:     model.DeletedAt,
 	}
 
 	result := m.DB.Create(&customer)
@@ -128,9 +125,9 @@ func (m *MySQLRepository) UpdateCutomer(model *models.Customer) (*models.Custome
 		ContactNumber: model.ContactNumber,
 		Address:       model.Address,
 		Priority:      model.Priority,
-		CreatedAt:     model.CreatedAt,
-		UpdatedAt:     model.UpdatedAt,
-		DeletedAt:     model.DeletedAt,
+		// CreatedAt:     model.CreatedAt,
+		// UpdatedAt:     model.UpdatedAt,
+		// DeletedAt:     model.DeletedAt,
 	}
 
 	checkRecord, err := m.GetCutomerById(model.CustomerId)

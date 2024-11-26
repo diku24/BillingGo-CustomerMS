@@ -30,6 +30,11 @@ func NewMuxRouter() Router {
 	return &muxRouter{}
 }
 
+// Path Prefix for swagger ui implementations
+func (*muxRouter) PathPrefix(path string) *mux.Route {
+	return muxDispatcher.PathPrefix(path)
+}
+
 // DELETE implements Router.
 func (*muxRouter) DELETE(uri string, funcojb func(respoce http.ResponseWriter, request *http.Request)) {
 	muxDispatcher.HandleFunc(uri, funcojb).Methods("DELETE")

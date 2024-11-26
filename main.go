@@ -4,6 +4,7 @@ package main
 import (
 	"CustomerMS/api"
 	dbInit "CustomerMS/db"
+	_ "CustomerMS/docs"
 	"CustomerMS/handler"
 	"CustomerMS/logger"
 	"CustomerMS/repository"
@@ -21,6 +22,7 @@ import (
 	"time"
 
 	"github.com/sirupsen/logrus"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 var (
@@ -92,18 +94,18 @@ func init() {
 	logrus.SetReportCaller(true)
 }
 
-//	@Title			Tag Service API
-//	@Description:	this is the Commerce Billing application for the Server.
-//
-// @termsOfService: http://billingapplication.io/terms/
-// @contact:
-// @email: dineshthakur.24@outlook.com
-// @license:
-// @name: Apache 2.0
-// @url: http://www.apache.org/licenses/LICENSE-2.0.html
-// @version: 1.0.11
-//
-//go:generate swagger generate spec
+//	@Title			Customer Service API
+//	@Version		1.0
+//	@Description	this is the Commerce Billing application for the Server.
+//	@termsOfService	http://billingapplication.io/terms/
+//	@contact.name	Dinesh Thakur
+//	@contact.email	dineshthakur.24@outlook.com
+//	@license.name	Apache 2.0
+//	@license.url	http://www.apache.org/licenses/LICENSE-2.0.html
+//	@host			localhost:8382
+//	@accept			json
+//	@produce		json
+
 func main() {
 
 	//Create Table in DB Database Setup
@@ -115,6 +117,7 @@ func main() {
 		sigint := make(chan os.Signal, 1)
 		signal.Notify(sigint, os.Interrupt)
 		signal.Notify(sigint, syscall.SIGTERM)
+		logrus.Infoln("Signal Recvied:", sigint)
 		<-sigint
 
 		logrus.Infoln("Service interrupt received !!")
@@ -148,6 +151,18 @@ func main() {
 	httpRouter.DELETE(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.DELETE))
 	httpRouter.POST(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.POST))
 	httpRouter.UPDATE(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.PUT))
+
+	httpRouter.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
+
+	httpRouter.PathPrefix("/swagger/").Handler(httpSwagger.Handler(
+		httpSwagger.URL("http://localhost:8382/docs/swagger.json"), //The url pointing to API definition
+		httpSwagger.DeepLinking(true),
+		httpSwagger.DocExpansion("none"),
+		httpSwagger.DomID("swagger-ui"),
+		httpSwagger.Layout(httpSwagger.StandaloneLayout),
+		httpSwagger.InstanceName("swagger"),
+	)).Methods(http.MethodGet)
+
 	httpRouter.SERVE(port)
 
 	<-idelConnectionClosed

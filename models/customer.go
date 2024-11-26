@@ -1,7 +1,7 @@
 package models
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 // Customer represents the customer for this billing application
@@ -21,7 +21,7 @@ type Customer struct {
 	//required: true
 	//min: 1
 	//unique: true
-
+	gorm.Model
 	CustomerId string `json:"customer_id" gorm:"primaryKey"`
 
 	//the  customerName is Name of the Customer.
@@ -40,12 +40,12 @@ type Customer struct {
 	//the Priority is used to address the preference to customers request.
 	Priority string `json:"priority"`
 
-	//Created timestamp for Records
-	CreatedAt time.Time `json:"created_at"`
+	// //Created timestamp for Records
+	// CreatedAt time.Time `json:"created_at"`
 
-	//Updated timestamp for Records
-	UpdatedAt time.Time `json:"updated_at"`
+	// //Updated timestamp for Records
+	// UpdatedAt time.Time `json:"updated_at"`
 
-	//Deleted timestamp for Records
-	DeletedAt time.Time `json:"deleted_at"`
+	// //Deleted timestamp for Records
+	// DeletedAt time.Time `json:"deleted_at"`
 }

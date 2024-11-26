@@ -1,5 +1,201 @@
+consumes:
+- application/json
+definitions:
+  errors.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+  models.Customer:
+    properties:
+      address:
+        description: |-
+          the address is either full address or City name of the Customer.
+          required true
+        type: string
+      contact_number:
+        description: |-
+          the ContanctNumber is the Phone Number or mobile number of Customer.
+          required: true
+          min lenght: 10
+        type: string
+      created_at:
+        description: Created timestamp for Records
+        type: string
+      customer_id:
+        type: string
+      customer_name:
+        description: |-
+          the  customerName is Name of the Customer.
+          required: true
+        type: string
+      deleted_at:
+        description: Deleted timestamp for Records
+        type: string
+      priority:
+        description: the Priority is used to address the preference to customers request.
+        type: string
+      updated_at:
+        description: Updated timestamp for Records
+        type: string
+    type: object
+host: localhost:8382
 info:
-  contact: {}
-  title: Tag Service API
-paths: {}
+  contact:
+    email: dineshthakur.24@outlook.com
+    name: Dinesh Thakur
+  description: this is the Commerce Billing application for the Server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://billingapplication.io/terms/
+  title: Customer Service API
+  version: "1.0"
+paths:
+  /customer:
+    post:
+      consumes:
+      - application/json
+      description: Create customers.
+      parameters:
+      - description: Create customer
+        in: body
+        name: customer
+        required: true
+        schema:
+          $ref: '#/definitions/models.Customer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: Create customers
+      tags:
+      - Customers
+  /customer/{customer_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete by customer ID
+      parameters:
+      - description: Customer ID
+        format: int64
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            $ref: '#/definitions/models.Customer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: Delete an customer
+      tags:
+      - Customer
+    get:
+      consumes:
+      - application/json
+      description: Get all customers if no customer_is provided else get customer
+        of the passed Id.
+      parameters:
+      - description: customer_id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: Get customers
+      tags:
+      - Customers
+  /customer/{id}:
+    put:
+      consumes:
+      - application/json
+      description: update customers.
+      parameters:
+      - description: customer_id
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Update customer
+        in: body
+        name: customer
+        required: true
+        schema:
+          $ref: '#/definitions/models.Customer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Customer'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/errors.HTTPError'
+      summary: update customers
+      tags:
+      - Customers
+produces:
+- application/json
 swagger: "2.0"

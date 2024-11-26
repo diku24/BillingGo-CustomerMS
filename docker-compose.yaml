@@ -1,0 +1,35 @@
+services:
+    customer-microservice:
+        build: 
+            context:  .
+            dockerfile: ./dockerfile
+        ports:
+          - "8382:8382"
+        restart: on-failure
+        links:
+          - customer-database
+        # develop:
+        #   watch:
+        #     - action: rebuild
+        #       path: ./              
+              
+            # - action: sync+restart
+            #   path: ./
+            #   target: /usr/src/app
+    customer-database:
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_DATABASE: "billingapplication"
+            MYSQL_USER: "diku"
+            MYSQL_PASSWORD: "diku"
+            MYSQL_ROOT_PASSWORD: "root"
+        ports:
+          -  "3306:3306"
+        expose:
+          -  "3306"
+        volumes:
+          - my-db:/var/lib/mysql
+    
+volumes:
+  my-db:

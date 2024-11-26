@@ -1,8 +1,8 @@
 build:
-	@go build -o bin/billingGo
+	@go build -o bin/CustomerMS
 
 run: build
-	@./bin/billingGo
+	@./bin/CustomerMS
 
 test:
 	@go test ./... -coverprofile=coverage
@@ -35,3 +35,25 @@ mockGenerateAPI:
 generateAllMocks: mockGenerateRepo mockGenerateService  mockGenerateHandler mockGenerateAPI
 
 
+swagger:
+	@swagger generate spec -o ./docs/swagger.yaml --scan-models
+	@swagger generate spec -o ./docs/swagger.json --scan-models
+
+genSwagDoc:
+	@swag init
+
+formatDoc:
+	@swag fmt
+
+# docker compose watch
+up:
+	docker compose up
+
+down:
+	docker compose down
+
+prune:
+	docker image prune -f
+
+log:
+	docker compose logs -f -t

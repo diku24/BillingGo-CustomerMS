@@ -374,3 +374,221 @@
 @timestamp="2023-11-25 14:01:34" severity=info message="Shutdown Completed !!" file="main.go:128"
 25252-11-25 14:09:09: Service is Stopped Successfully!
 @timestamp="2023-11-25 14:01:34" severity=info message="Service is Stopped Successfully!" file="main.go:154"
+23231-11-23 13:09:09: Table Dropped Successfully
+@timestamp="2024-11-23 13:19:46" severity=info message="Table Dropped Successfully" file="db_init.go:95"
+23231-11-23 13:09:09: Table Creates Successfully
+@timestamp="2024-11-23 13:19:48" severity=info message="Table Creates Successfully" file="db_init.go:102"
+23231-11-23 13:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 13:19:48" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+23232-11-23 14:09:09: Service interrupt received !!
+@timestamp="2024-11-23 14:20:29" severity=info message="Service interrupt received !!" file="main.go:120"
+23232-11-23 14:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 14:20:29" severity=info message="Shutdown Completed !!" file="main.go:128"
+23232-11-23 14:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 14:20:29" severity=info message="Service is Stopped Successfully!" file="main.go:154"
+23232-11-23 14:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 14:21:26" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+23232-11-23 14:09:09: Service interrupt received !!
+@timestamp="2024-11-23 14:22:47" severity=info message="Service interrupt received !!" file="main.go:121"
+23232-11-23 14:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 14:22:47" severity=info message="Shutdown Completed !!" file="main.go:129"
+23232-11-23 14:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 14:22:47" severity=info message="Service is Stopped Successfully!" file="main.go:157"
+23232-11-23 14:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 14:22:57" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+23232-11-23 14:09:09: Service interrupt received !!
+@timestamp="2024-11-23 14:40:07" severity=info message="Service interrupt received !!" file="main.go:121"
+23232-11-23 14:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 14:40:07" severity=info message="Shutdown Completed !!" file="main.go:129"
+23232-11-23 14:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 14:40:07" severity=info message="Service is Stopped Successfully!" file="main.go:157"
+23232-11-23 14:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 14:41:10" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+23232-11-23 14:09:09: Service interrupt received !!
+@timestamp="2024-11-23 14:54:01" severity=info message="Service interrupt received !!" file="main.go:121"
+23232-11-23 14:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 14:54:01" severity=info message="Shutdown Completed !!" file="main.go:129"
+23232-11-23 14:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 14:54:01" severity=info message="Service is Stopped Successfully!" file="main.go:157"
+23232-11-23 14:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 14:54:08" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+23232-11-23 14:09:09: Service interrupt received !!
+@timestamp="2024-11-23 14:57:21" severity=info message="Service interrupt received !!" file="main.go:122"
+23232-11-23 14:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 14:57:21" severity=info message="Shutdown Completed !!" file="main.go:130"
+23232-11-23 14:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 14:57:21" severity=info message="Service is Stopped Successfully!" file="main.go:163"
+23232-11-23 14:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 14:57:30" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:59"
+23233-11-23 15:09:09: Service interrupt received !!
+@timestamp="2024-11-23 15:06:31" severity=info message="Service interrupt received !!" file="main.go:122"
+23233-11-23 15:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 15:06:31" severity=info message="Shutdown Completed !!" file="main.go:130"
+23233-11-23 15:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 15:06:31" severity=info message="Service is Stopped Successfully!" file="main.go:163"
+23233-11-23 15:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 15:21:51" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23233-11-23 15:09:09: Service interrupt received !!
+@timestamp="2024-11-23 15:22:05" severity=info message="Service interrupt received !!" file="main.go:120"
+23233-11-23 15:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 15:22:05" severity=info message="Shutdown Completed !!" file="main.go:128"
+23233-11-23 15:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 15:22:05" severity=info message="Service is Stopped Successfully!" file="main.go:156"
+23233-11-23 15:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 15:35:35" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23233-11-23 15:09:09: Service interrupt received !!
+@timestamp="2024-11-23 15:37:34" severity=info message="Service interrupt received !!" file="main.go:122"
+23233-11-23 15:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 15:37:34" severity=info message="Shutdown Completed !!" file="main.go:130"
+23233-11-23 15:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 15:37:34" severity=info message="Service is Stopped Successfully!" file="main.go:164"
+23233-11-23 15:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 15:38:14" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23233-11-23 15:09:09: Service interrupt received !!
+@timestamp="2024-11-23 15:39:05" severity=info message="Service interrupt received !!" file="main.go:122"
+23233-11-23 15:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 15:39:05" severity=info message="Shutdown Completed !!" file="main.go:130"
+23233-11-23 15:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 15:39:06" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23233-11-23 15:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 15:39:21" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23233-11-23 15:09:09: Service interrupt received !!
+@timestamp="2024-11-23 15:41:06" severity=info message="Service interrupt received !!" file="main.go:122"
+23233-11-23 15:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 15:41:06" severity=info message="Shutdown Completed !!" file="main.go:130"
+23233-11-23 15:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 15:41:06" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:01:52" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:04:49" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:04:49" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:04:49" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:04:56" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:06:34" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:06:34" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:06:34" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:07:42" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:08:47" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:10:01" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:10:01" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:10:01" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:17:47" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:28:51" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:28:51" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:28:51" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:29:04" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:30:39" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:30:39" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:30:39" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:30:47" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:32:11" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:32:11" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:32:11" severity=info message="Service is Stopped Successfully!" file="main.go:165"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:32:20" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:32:42" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:32:42" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:32:42" severity=info message="Service is Stopped Successfully!" file="main.go:166"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:33:07" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:34:38" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:34:38" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:34:38" severity=info message="Service is Stopped Successfully!" file="main.go:166"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:34:52" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23235-11-23 17:09:09: Service interrupt received !!
+@timestamp="2024-11-23 17:35:40" severity=info message="Service interrupt received !!" file="main.go:122"
+23235-11-23 17:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 17:35:40" severity=info message="Shutdown Completed !!" file="main.go:130"
+23235-11-23 17:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 17:35:40" severity=info message="Service is Stopped Successfully!" file="main.go:166"
+23235-11-23 17:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 17:54:07" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+23236-11-23 18:09:09: Service interrupt received !!
+@timestamp="2024-11-23 18:00:22" severity=info message="Service interrupt received !!" file="main.go:122"
+23236-11-23 18:09:09: Shutdown Completed !!
+@timestamp="2024-11-23 18:00:22" severity=info message="Shutdown Completed !!" file="main.go:130"
+23236-11-23 18:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-23 18:00:22" severity=info message="Service is Stopped Successfully!" file="main.go:168"
+23236-11-23 18:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-23 18:00:32" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+242411-11-24 11:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-24 11:04:00" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+242411-11-24 11:09:09: Service interrupt received !!
+@timestamp="2024-11-24 11:07:34" severity=info message="Service interrupt received !!" file="main.go:123"
+242411-11-24 11:09:09: Shutdown Completed !!
+@timestamp="2024-11-24 11:07:34" severity=info message="Shutdown Completed !!" file="main.go:131"
+242411-11-24 11:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-24 11:07:34" severity=info message="Service is Stopped Successfully!" file="main.go:169"
+242411-11-24 11:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-24 11:07:47" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+242411-11-24 11:09:09: Service interrupt received !!
+@timestamp="2024-11-24 11:10:15" severity=info message="Service interrupt received !!" file="main.go:123"
+242411-11-24 11:09:09: Shutdown Completed !!
+@timestamp="2024-11-24 11:10:15" severity=info message="Shutdown Completed !!" file="main.go:131"
+242411-11-24 11:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-24 11:10:15" severity=info message="Service is Stopped Successfully!" file="main.go:169"
+242411-11-24 11:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-24 11:10:24" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+242411-11-24 11:09:09: Service interrupt received !!
+@timestamp="2024-11-24 11:11:43" severity=info message="Service interrupt received !!" file="main.go:123"
+242411-11-24 11:09:09: Shutdown Completed !!
+@timestamp="2024-11-24 11:11:43" severity=info message="Shutdown Completed !!" file="main.go:131"
+242411-11-24 11:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-24 11:11:43" severity=info message="Service is Stopped Successfully!" file="main.go:169"
+242411-11-24 11:09:09: HTTP Server is Running on PORT :8382
+@timestamp="2024-11-24 11:12:23" severity=info message="HTTP Server is Running on PORT :8382" file="mux-router.go:64"
+242411-11-24 11:09:09: Id to be deleted - Handler :  {customer_id}
+@timestamp="2024-11-24 11:13:02" severity=info message="Id to be deleted - Handler :  {customer_id}" file="customer-handler.go:144"
+242411-11-24 11:09:09: You have entered Id: {customer_id}
+@timestamp="2024-11-24 11:13:02" severity=info message="You have entered Id: {customer_id}" file="my-sql-repo.go:156"
+242411-11-24 11:09:09: You have enter id: {customer_id}
+@timestamp="2024-11-24 11:13:02" severity=info message="You have enter id: {customer_id}" file="my-sql-repo.go:90"
+242411-11-24 11:09:09: 0
+@timestamp="2024-11-24 11:13:02" severity=info message=0 file="my-sql-repo.go:92"
+242411-11-24 11:09:09: record not found
+@timestamp="2024-11-24 11:13:02" severity=error message="record not found" file="my-sql-repo.go:94"
+242411-11-24 11:09:09: &{0xc000140120 record not found 0 0xc000b9a000 0}
+@timestamp="2024-11-24 11:13:02" severity=info message="&{0xc000140120 record not found 0 0xc000b9a000 0}" file="my-sql-repo.go:95"
+242411-11-24 11:09:09: No Records Found for Entered Id: {customer_id}
+@timestamp="2024-11-24 11:13:02" severity=error message="No Records Found for Entered Id: {customer_id}" file="my-sql-repo.go:98"
+242411-11-24 11:09:09: Values   0001-01-01 00:00:00 +0000 UTC
+@timestamp="2024-11-24 11:13:02" severity=info message="Values   0001-01-01 00:00:00 +0000 UTC" file="my-sql-repo.go:101"
+242411-11-24 11:09:09: No Records Found for Entered Id: {customer_id}
+@timestamp="2024-11-24 11:13:02" severity=error message="No Records Found for Entered Id: {customer_id}" file="my-sql-repo.go:159"
+242411-11-24 11:09:09: Service interrupt received !!
+@timestamp="2024-11-24 11:15:37" severity=info message="Service interrupt received !!" file="main.go:122"
+242411-11-24 11:09:09: Shutdown Completed !!
+@timestamp="2024-11-24 11:15:37" severity=info message="Shutdown Completed !!" file="main.go:130"
+242411-11-24 11:09:09: Service is Stopped Successfully!
+@timestamp="2024-11-24 11:15:37" severity=info message="Service is Stopped Successfully!" file="main.go:168"

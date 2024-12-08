@@ -16,6 +16,9 @@ testFuncCoverage: test
 mody:
 	@go mod tidy
 
+resetMody:
+	@go mod tidy -v
+
 mockGenerateRepo:
 #Make sure The Path for the Source and Destination should be full path for the file
 	@mockgen -source=C:/Users/Dinesh/go/src/BillingGo/CustomerMS/repository/bill-repo.go -destination=C:/Users/Dinesh/go/src/BillingGo/CustomerMS/mocks/repositoryMocks.go -package=mocks

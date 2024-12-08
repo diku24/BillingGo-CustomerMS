@@ -43,6 +43,10 @@ func formatFilePath(path string) string {
 
 func init() {
 
+	utils.InitUtils()
+
+	logger.InitLogger()
+
 	// Open a file for appending logs
 	file, err := os.OpenFile("logs/error.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
 	if err != nil {
@@ -152,7 +156,7 @@ func main() {
 	httpRouter.POST(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.POST))
 	httpRouter.UPDATE(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.PUT))
 
-	httpRouter.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
+	// httpRouter.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
 	httpRouter.PathPrefix("/swagger/").Handler(httpSwagger.Handler(
 		httpSwagger.URL("http://localhost:8382/docs/swagger.json"), //The url pointing to API definition

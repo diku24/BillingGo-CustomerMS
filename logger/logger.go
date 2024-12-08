@@ -33,7 +33,7 @@ func (hook *FileHook) Fire(entry *logrus.Entry) error {
 	return err
 }
 
-func Init() {
+func InitLogger() {
 
 	logrus.SetReportCaller(true)
 

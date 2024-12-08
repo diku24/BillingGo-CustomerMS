@@ -6,7 +6,16 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 )
+
+func InitUtils() {
+	viper.SetConfigFile("/config/configuration.env")
+	if configVar := viper.ReadInConfig(); configVar != nil {
+		logrus.Errorln("Error Reading Configurations Variables")
+	}
+
+}
 
 func EnvVarRead(key string) string {
 	var filePath string

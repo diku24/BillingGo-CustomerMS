@@ -43,7 +43,10 @@ func NewCustomerController(service services.BillService) BillHandler {
 //	@Router			/customer/{customer_id}	[get]
 func (s *CustomerController) GET(response http.ResponseWriter, req *http.Request) error {
 
-	customerIdParam := req.URL.Query().Get("customer_id")
+	customerIdParam := mux.Vars(req)["customer_id"]
+	if customerIdParam == "" {
+		customerIdParam = req.URL.Query().Get("customer_id")
+	}
 	logrus.Infoln(customerIdParam)
 	if customerIdParam != "" {
 		customer, err := s.service.GetById(customerIdParam)
@@ -112,6 +115,10 @@ func (s *CustomerController) PUT(response http.ResponseWriter, req *http.Request
 	err := json.NewDecoder(req.Body).Decode(&customer)
 	if err != nil {
 		return WriteJSON(response, http.StatusInternalServerError, billerr.ControllerError{Message: "Error Reading the Params"})
+	}
+
+	if customerID := mux.Vars(req)["customer_id"]; customerID != "" {
+		customer.CustomerId = customerID
 	}
 
 	tempCustomer, err := s.service.Update(&customer)

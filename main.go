@@ -43,8 +43,6 @@ func formatFilePath(path string) string {
 
 func init() {
 
-	utils.InitUtils()
-
 	logger.InitLogger()
 
 	// Open a file for appending logs
@@ -111,6 +109,10 @@ func init() {
 //	@produce		json
 
 func main() {
+
+	if err := utils.InitUtils(); err != nil {
+		logrus.Fatalf("Unable to initialize configuration: %v", err)
+	}
 
 	//Create Table in DB Database Setup
 	dbInit.TableCreation()

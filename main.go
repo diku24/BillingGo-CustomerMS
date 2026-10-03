@@ -43,8 +43,6 @@ func formatFilePath(path string) string {
 
 func init() {
 
-	utils.InitUtils()
-
 	logger.InitLogger()
 
 	// Open a file for appending logs
@@ -112,6 +110,10 @@ func init() {
 
 func main() {
 
+	if err := utils.InitUtils(); err != nil {
+		logrus.Fatalf("Unable to initialize configuration: %v", err)
+	}
+
 	//Create Table in DB Database Setup
 	dbInit.TableCreation()
 
@@ -152,9 +154,10 @@ func main() {
 	})
 
 	httpRouter.GET(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.GET))
+	httpRouter.GET(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.GET))
 	httpRouter.DELETE(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.DELETE))
 	httpRouter.POST(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.POST))
-	httpRouter.UPDATE(uriCustomer, api.MakeHTTPHandlerFunction(billHandler.PUT))
+	httpRouter.UPDATE(uriCustomer+"/{customer_id}", api.MakeHTTPHandlerFunction(billHandler.PUT))
 
 	// httpRouter.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 

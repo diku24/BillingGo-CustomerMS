@@ -224,6 +224,67 @@ func TestGETById(t *testing.T) {
 	assert.Equal(t, mockCustomer.Priority, testResult.Priority)
 }
 
+func TestGETByPathVariable(t *testing.T) {
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
+
+	mockService := generateMockService(t)
+	mockService.EXPECT().GetById(mockCustomer.CustomerId).Return(mockCustomer, nil)
+
+	testController := handler.NewCustomerController(mockService)
+	response := httptest.NewRecorder()
+	request := httptest.NewRequest(http.MethodGet, uriCustomer+"/"+mockCustomer.CustomerId, nil)
+	request = mux.SetURLVars(request, map[string]string{"customer_id": mockCustomer.CustomerId})
+
+	err := testController.GET(response, request)
+	if err != nil {
+		t.Error(err.Error())
+	}
+
+	var got models.Customer
+	if err := json.NewDecoder(response.Body).Decode(&got); err != nil {
+		t.Fatal(err)
+	}
+
+	assert.Equal(t, http.StatusOK, response.Code)
+	assert.Equal(t, mockCustomer, got)
+}
+
+func TestUpdateByPathVariable(t *testing.T) {
+	mockCustomer := models.Customer{
+		CustomerId:    "1",
+		CustomerName:  "Diku",
+		ContactNumber: "345-345-345",
+		Address:       "Ahmednagar",
+		Priority:      "High",
+	}
+
+	mockService := generateMockService(t)
+	mockService.EXPECT().Update(&mockCustomer).Return(&mockCustomer, nil)
+
+	testController := handler.NewCustomerController(mockService)
+	response := httptest.NewRecorder()
+	request := httptest.NewRequest(http.MethodPut, uriCustomer+"/"+mockCustomer.CustomerId, bytes.NewBuffer([]byte(`{
+		"customer_id": "body-id-must-be-ignored",
+		"customer_name": "Diku",
+		"contact_number": "345-345-345",
+		"address": "Ahmednagar",
+		"priority": "High"
+	}`)))
+	request = mux.SetURLVars(request, map[string]string{"customer_id": mockCustomer.CustomerId})
+
+	if err := testController.PUT(response, request); err != nil {
+		t.Error(err.Error())
+	}
+
+	assert.Equal(t, http.StatusOK, response.Code)
+}
+
 func TestUpdate(t *testing.T) {
 
 	mockCustomer := models.Customer{
